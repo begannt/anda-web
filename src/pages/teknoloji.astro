@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Blueprint from '../components/Blueprint.astro';
+
+const metrics = [
+  { value: '≥25', unit: '%', label: 'Su Azaltma' },
+  { value: '50–55', unit: '%', label: 'Katı içerik' },
+  { value: '6.', unit: 'nesil', label: 'PCE' },
+  { value: 'WR · SR', unit: '', label: 'Ürün Hattı' },
+];
+const lines = [
+  {
+    tag: 'WR', title: 'Su Azaltıcı', std: 'EN 934-2 Çiz. 3.1/3.2 · ASTM Tip F',
+    desc: 'Su/bağlayıcı oranını düşürerek yüksek erken ve nihai basınç dayanımı hedefler. Prekast ve yüksek dayanımlı beton için.',
+    rows: [['Ana işlev', 'Su azaltma + erken dayanım'], ['Su azaltma', '≥ %25'], ['Dozaj', '%0,3 – 0,5 (bağlayıcı)']],
+  },
+  {
+    tag: 'SR', title: 'Kıvam Koruyucu', std: 'EN 934-2 Çiz. 11.1/11.2 · ASTM Tip G',
+    desc: 'Taze betonun işlenebilirliğini uzun süre korur. Uzun taşıma mesafeleri ve sıcak hava dökümleri için.',
+    rows: [['Ana işlev', 'Kıvam (slump) koruma'], ['60 dk slump kaybı', '≤ 40 mm'], ['Dozaj', '%0,5 – 2,5 (bağlayıcı)']],
+  },
+];
+---
+<Base active="tech" title="PCE Teknolojisi — ANDA Kimya" description="6. nesil polikarboksilat eter (PCE) teknolojisi: su azaltma ≥%25 ve WR / SR ürün hatları.">
+  <div class="ak-wrap ak-page">
+    <div class="ak-blockhead ak-blockhead--page">
+      <div>
+        <h2 class="ak-h2mono">02 — PCE Teknolojisi</h2>
+        <p class="ak-page__sub">Polikarboksilat eter (PCE) bazlı yeni nesil süperakışkanlaştırıcılar — ölçülmüş değer ve standartla.</p>
+      </div>
+      <span class="ak-ref">AK/TEC/2026 · REV 00</span>
+    </div>
+
+    <p class="ak-lede" style="max-width:62ch;">PCE polimerleri, çimento tanecikleri arasındaki dağılımı düzenleyerek aynı işlenebilirlikte daha az su gerektirir. Daha düşük su/bağlayıcı oranı; daha yüksek dayanım, daha düşük geçirimlilik ve daha öngörülebilir saha performansı demektir. ANDA bu formülasyonu uluslararası ölçekte güncel teknolojiyle kurar, Gebze-Balçık'ta üretir ve her parti için belgeyle teslim eder.</p>
+    <div class="ak-bp-band"><Blueprint kind="etki" /></div>
+  </div>
+
+  <div class="ak-tech">
+    <div class="ak-wrap ak-tech__grid">
+      {metrics.map((m) => (
+        <div class="ak-tech__cell">
+          <div class="anda-metric anda-metric--md">
+            <div class="val">{m.value}<span class="u">{m.unit}</span></div>
+            <div class="k">{m.label}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="ak-wrap ak-page">
+    <div class="ak-blockhead"><h2 class="ak-h2mono">WR ve SR farkı</h2><span class="ak-ref">İKİ HAT · TEK SİSTEM</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+      {lines.map((l) => (
+        <div class="anda-panel">
+          <div class="anda-panel__head"><span class="anda-panel__title">{l.tag} · {l.title}</span></div>
+          <div class="anda-panel__body">
+            <p style="font-size:14px;color:var(--text-body);line-height:1.65;margin:0 0 16px;">{l.desc}</p>
+            <div class="ak-side__kv" style="grid-template-columns:1fr;gap:10px;">
+              {l.rows.map((r) => (<div><i>{r[0]}</i><b>{r[1]}</b></div>))}
+            </div>
+            <p style="margin-top:16px;"><span class="anda-stdbadge"><span class="tick"></span><span>{l.std}</span></span></p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="ak-block__foot" style="justify-content:flex-start;margin-top:30px;gap:12px;display:flex;">
+      <a class="anda-btn anda-btn--secondary anda-btn--md" href="/urunler"><span>Ürün indeksini aç</span><Icon name="arrow-right" size={17} /></a>
+      <a class="anda-btn anda-btn--ghost anda-btn--md" href="/iletisim"><Icon name="mail" size={17} /><span>Teknik görüşme</span></a>
+    </div>
+  </div>
+</Base>

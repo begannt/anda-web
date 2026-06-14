@@ -1,0 +1,31 @@
+---
+import Seal from './Seal.astro';
+---
+<footer class="ak-footer">
+  <div class="ak-wrap ak-footer__grid">
+    <div class="ak-footer__brand">
+      <img src="/assets/anda-logo-white.png" alt="ANDA" class="ak-footer__logo" width="95" height="26" loading="lazy" />
+      <p>MMS Kimyasal Ürünler A.Ş.<br />Beton katkı kimyasalları — PCE su azaltıcı ve kıvam koruyucu.<br />Gebze-Balçık üretim tesisi.</p>
+    </div>
+    <div class="ak-footer__col">
+      <span class="ak-lbl">Dizin</span>
+      <a href="/urunler">Ürünler</a>
+      <a href="/teknoloji">Teknoloji</a>
+      <a href="/kalite">Kalite &amp; Mevzuat</a>
+      <a href="/kutuphane">Teknik Kütüphane</a>
+    </div>
+    <div class="ak-footer__col">
+      <span class="ak-lbl">İletişim</span>
+      <p>Balçık Mah. 3272 Sok. No:27/1<br />Gebze / Kocaeli, Türkiye<br /><a href="mailto:info@andakimya.com">info@andakimya.com</a></p>
+    </div>
+    <div class="ak-footer__seal">
+      <Seal size={104} markSrc="/assets/anda-mark-white.png" stroke="rgba(255,255,255,0.85)" dot={false} />
+    </div>
+  </div>
+  <div class="ak-footer__bottom">
+    <div class="ak-wrap ak-footer__bottombar">
+      <span class="ak-ref">© 2026 MMS KİMYASAL ÜRÜNLER A.Ş. · TÜM HAKLARI SAKLIDIR</span>
+      <span class="ak-ref">AK/WEB/2026 · REV 00 · TR</span>
+    </div>
+  </div>
+</footer>

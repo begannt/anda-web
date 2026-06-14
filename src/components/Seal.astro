@@ -1,0 +1,27 @@
+---
+// ANDA · Seal (mühür) — DS paketinden port. Çin esintisinin yüzeye çıktığı tek yer; form olarak.
+const {
+  size = 120,
+  markSrc,
+  stroke = 'var(--navy)',
+  legend = 'ANDA KİMYA · GEBZE · KONTROLLÜ KALİTE · 2026 · ',
+  dot = true, // kızıl mühür noktası — navy zeminde KAPATILIR (A-TONU §08: kızıl navy üstünde yok)
+} = Astro.props;
+const markW = size * 0.30;
+const cid = 'sealcir-' + Math.round(size * 100 + (markSrc ? markSrc.length : 0));
+---
+<span class="anda-seal" style={`width:${size}px;height:${size}px;`}>
+  <svg width={size} height={size} viewBox="0 0 120 120" fill="none">
+    <circle cx="60" cy="60" r="57" stroke={stroke} stroke-width="1.3" />
+    <circle cx="60" cy="60" r="46.5" stroke={stroke} stroke-width="0.9" />
+    <circle cx="60" cy="60" r="44" stroke="var(--border)" stroke-width="0.6" />
+    <path id={cid} d="M60 19 a41 41 0 1 1 -0.1 0" fill="none" />
+    <text font-size="7.1" letter-spacing="2.6" fill={stroke}>
+      <textPath href={`#${cid}`} startOffset="0%">{legend}</textPath>
+    </text>
+    {dot && <circle cx="60" cy="83" r="2.4" fill="var(--red)" />}
+  </svg>
+  {markSrc && (
+    <img class="anda-seal__mark" src={markSrc} alt="ANDA" style={`width:${markW}px;height:${markW * 1.04}px;`} />
+  )}
+</span>

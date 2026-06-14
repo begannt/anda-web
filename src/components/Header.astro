@@ -1,0 +1,63 @@
+---
+import Icon from './Icon.astro';
+const { active = 'home' } = Astro.props;
+const NAV = [
+  { id: 'home', num: '00', label: 'Ana', href: '/' },
+  { id: 'index', num: '01', label: 'Ürünler', href: '/urunler' },
+  { id: 'tech', num: '02', label: 'Teknoloji', href: '/teknoloji' },
+  { id: 'quality', num: '03', label: 'Kalite', href: '/kalite' },
+  { id: 'lib', num: '04', label: 'Kütüphane', href: '/kutuphane' },
+  { id: 'about', num: '05', label: 'Hakkımızda', href: '/hakkimizda' },
+  { id: 'contact', num: '06', label: 'İletişim', href: '/iletisim' },
+];
+---
+<header class="ak-header">
+  <div class="ak-wrap ak-header__bar">
+    <a class="ak-brand" href="/"><img src="/assets/anda-logo-blue.png" alt="ANDA" width="95" height="26" /></a>
+    <div class="ak-header__tabs">
+      <nav class="anda-tabs">
+        {NAV.map((it) => (
+          <a
+            class={`anda-tabs__tab${it.id === active ? ' anda-tabs__tab--active' : ''}`}
+            href={it.href}
+            aria-current={it.id === active ? 'page' : undefined}
+          >
+            <span class="n">{it.num}</span>{it.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+    <div class="ak-header__right">
+      <span class="ak-lang"><b>TR</b></span>
+      <a class="anda-btn anda-btn--primary anda-btn--sm" href="/iletisim">
+        <span>Teknik Talep</span><Icon name="arrow-right" size={15} />
+      </a>
+      <button class="ak-burger" type="button" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="ak-mobnav" data-burger>
+        <Icon name="menu" size={20} />
+      </button>
+    </div>
+  </div>
+  <nav id="ak-mobnav" class="ak-mobnav" aria-label="Mobil dizin" hidden>
+    {NAV.map((it) => (
+      <a
+        class={`ak-mobnav__row${it.id === active ? ' is-active' : ''}`}
+        href={it.href}
+        aria-current={it.id === active ? 'page' : undefined}
+      >
+        <span class="n">{it.num}</span><span class="t">{it.label}</span>
+      </a>
+    ))}
+  </nav>
+</header>
+<script is:inline>
+  (() => {
+    const b = document.querySelector('[data-burger]');
+    const m = document.getElementById('ak-mobnav');
+    if (!b || !m) return;
+    b.addEventListener('click', () => {
+      const willOpen = m.hasAttribute('hidden');
+      if (willOpen) { m.removeAttribute('hidden'); b.setAttribute('aria-expanded', 'true'); }
+      else { m.setAttribute('hidden', ''); b.setAttribute('aria-expanded', 'false'); }
+    });
+  })();
+</script>

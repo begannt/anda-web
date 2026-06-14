@@ -1,0 +1,20 @@
+# Bağımlılıklar
+node_modules/
+
+# Build çıktıları
+dist/
+.astro/
+
+# Ortam dosyaları
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Netlify yerel
+.netlify/
+
+# Loglar
+npm-debug.log*
+*.log

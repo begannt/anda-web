@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Blueprint from '../components/Blueprint.astro';
+---
+<Base active="about" title="Hakkımızda — ANDA Kimya" description="ANDA, MMS Kimyasal Ürünler A.Ş. markasıdır. Gebze-Balçık tesisinde 6. nesil PCE beton katkı maddesi üretimi.">
+  <div class="ak-wrap ak-page">
+    <div class="ak-blockhead ak-blockhead--page">
+      <div>
+        <h2 class="ak-h2mono">05 — Hakkımızda</h2>
+        <p class="ak-page__sub">Gebze-Balçık'ta beton katkı maddesi üreten bir yapı kimyasalları markası.</p>
+      </div>
+      <span class="ak-ref">AK/ORG/2026 · REV 00</span>
+    </div>
+
+    <div class="ak-detail__grid">
+      <div class="ak-detail__main">
+        <h1 class="ak-h1 ak-h1--sm">Beton katkısını belge titizliğiyle üreten bir yapı kimyasalları markası.</h1>
+        <p class="ak-lede" style="max-width:60ch;">ANDA, MMS Kimyasal Ürünler A.Ş. çatısı altında faaliyet gösteren bir yapı kimyasalları markasıdır. Beton kimyasında uluslararası ölçekte güncel formülasyon teknolojisini Gebze-Balçık üretimiyle Türkiye sahasına taşır; 6. nesil polikarboksilat eter (PCE) beton katkı maddelerini ölçülmüş değer ve belgeyle üretir.</p>
+        <p style="font-size:15px;color:var(--text-body);line-height:1.75;max-width:60ch;">Başlangıç odağımız Marmara bölgesi hazır beton üreticileri. Hızlı değil, doğru büyümeyi seçiyoruz: portföyü ölçülü genişletmek, her ürünü standart ve belgeyle çıkarmak, sahada sözün arkasında durmak. Sözümüzü ürün ve belgeyle veririz.</p>
+        <div style="display:flex;gap:12px;margin-top:28px;">
+          <a class="anda-btn anda-btn--secondary anda-btn--md" href="/urunler"><span>Ürünler</span><Icon name="arrow-right" size={17} /></a>
+          <a class="anda-btn anda-btn--ghost anda-btn--md" href="/iletisim"><span>İletişim</span></a>
+        </div>
+      </div>
+      <aside class="ak-detail__side" style="position:static;">
+        <Blueprint kind="akis" />
+      </aside>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,8 @@
+/* ============================================================
+   ANDA · Fonts
+   Engineering-document type voice: a technical, highly legible
+   sans for structure + a monospace for numbers, codes & labels.
+   IBM Plex is the brand candidate (per GF2). Loaded from Google
+   Fonts. Yükleme Base.astro <head> içinde preconnect + <link> ile
+   yapılır (render-bloklamayı azaltmak için @import kaldırıldı).
+   ============================================================ */

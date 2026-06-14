@@ -1,0 +1,79 @@
+/* ============================================================
+   ANDA · Spacing, Grid, Radii, Borders, Shadows, Motion
+   The "technical drawing" substrate: a strict modular grid,
+   millimetric margins, hairline rules, near-zero radii, and
+   calm, controlled motion. Premium = whitespace.
+   ============================================================ */
+
+:root {
+  /* ---- Spacing scale (4px base) ----------------------- */
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32:  128px;
+
+  /* ---- Layout ----------------------------------------- */
+  --content-max:    1240px;   /* document content width */
+  --content-narrow: 760px;    /* long-form reading */
+  --gutter:         40px;     /* page margin (desktop) */
+  --gutter-mobile:  20px;
+  --grid-columns:   12;       /* @kind other */
+  --grid-gap:       24px;
+  --module:         44px;     /* blueprint grid module */
+
+  /* ---- Radii (kept minimal — drafting, not bubbly) ---- */
+  --radius-none:  0;
+  --radius-xs:    2px;        /* default for inputs, chips */
+  --radius-sm:    3px;
+  --radius-md:    4px;        /* cards (max) */
+  --radius-pill:  999px;      /* status dots / avatars only */
+  --radius-card:  var(--radius-none); /* cards are squared by default */
+
+  /* ---- Border widths ---------------------------------- */
+  --bw-hair:   1px;           /* the rule line @kind spacing */
+  --bw-2:      2px;           /* active tab underline, focus @kind spacing */
+  --bw-accent: 3px;           /* section markers @kind spacing */
+
+  /* ---- Shadows ----------------------------------------
+     Restrained. Documents lie flat; elevation is a whisper,
+     reserved for overlays (modal, popover, toast).          */
+  --shadow-none:  none;
+  --shadow-hair:  0 0 0 1px var(--border-soft);
+  --shadow-card:  0 1px 2px rgba(8,30,45,0.04), 0 1px 0 rgba(8,30,45,0.03);
+  --shadow-pop:   0 8px 24px -8px rgba(8,30,45,0.18), 0 2px 6px rgba(8,30,45,0.08);
+  --shadow-modal: 0 24px 64px -16px rgba(8,30,45,0.34), 0 4px 12px rgba(8,30,45,0.12);
+  --shadow-focus: 0 0 0 3px rgba(0,103,154,0.22);
+
+  /* ---- Motion (calm, controlled — never playful) ------ */
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);  /* @kind other */
+  --ease-out:      cubic-bezier(0.0, 0.0, 0.2, 1);  /* @kind other */
+  --ease-in:       cubic-bezier(0.4, 0.0, 1, 1);    /* @kind other */
+  --dur-fast:      120ms;  /* @kind other */
+  --dur-base:      180ms;  /* @kind other */
+  --dur-slow:      280ms;  /* @kind other */
+
+  /* ---- Z-index ladder --------------------------------- */
+  --z-base:    0;        /* @kind other */
+  --z-sticky:  20;       /* @kind other */
+  --z-popover: 40;       /* @kind other */
+  --z-modal:   60;       /* @kind other */
+  --z-toast:   80;       /* @kind other */
+
+  /* ---- Registration tick geometry --------------------- */
+  --tick-size:   9px;
+  --tick-weight: 1px;
+}
+
+@media (max-width: 880px) {
+  :root { --gutter: var(--gutter-mobile); }
+}

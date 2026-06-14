@@ -1,0 +1,53 @@
+/* ============================================================
+   ANDA · Shared primitives (utility classes & motifs)
+   The recurring "engineering-file" motifs as reusable classes:
+   registration ticks, blueprint grid, hairline rules, the mono
+   doc-reference voice. Components may use these or the tokens.
+   ============================================================ */
+
+/* Registration / corner tick — the "technical drawing" mark */
+.anda-tick {
+  position: absolute;
+  width: var(--tick-size);
+  height: var(--tick-size);
+  pointer-events: none;
+}
+.anda-tick::before,
+.anda-tick::after {
+  content: "";
+  position: absolute;
+  background: var(--tick);
+  opacity: 0.6;
+}
+.anda-tick::before { width: var(--tick-size); height: var(--tick-weight); top: 0; left: 0; }
+.anda-tick::after  { width: var(--tick-weight); height: var(--tick-size); top: 0; left: 0; }
+.anda-tick--tr { transform: scaleX(-1); }
+.anda-tick--bl { transform: scaleY(-1); }
+.anda-tick--br { transform: scale(-1, -1); }
+.anda-tick--inverse::before,
+.anda-tick--inverse::after { background: var(--tick-on-inverse); }
+
+/* Blueprint grid background — for navy plates only, very faint */
+.anda-grid-bg {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--module) var(--module);
+}
+.anda-grid-bg--inverse {
+  background-image:
+    linear-gradient(var(--grid-line-inverse) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-inverse) 1px, transparent 1px);
+}
+
+/* Hairline rule */
+.anda-rule { border: 0; border-top: var(--bw-hair) solid var(--border); }
+
+/* Mono label / measure voice */
+.anda-ref {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--ls-label-sm);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

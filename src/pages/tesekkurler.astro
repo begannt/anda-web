@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Seal from '../components/Seal.astro';
+---
+<Base active="contact" title="Talebiniz alındı — ANDA Kimya" description="Talebiniz ANDA Kimya kontrollü doküman akışına eklendi.">
+  <div class="ak-wrap ak-page">
+    <div class="ak-blockhead ak-blockhead--page">
+      <h2 class="ak-h2mono">TALEP · ALINDI</h2>
+      <span class="ak-ref">AK/REQ/2026 · REV 00</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:48px 20px 64px;">
+      <Seal size={120} markSrc="/assets/anda-mark-navy.png" />
+      <h1 class="ak-h1 ak-h1--sm" style="margin:6px 0 0;">Talebiniz alındı.</h1>
+      <p class="ak-lede" style="margin:0;max-width:46ch;">Teknik ekip 1 iş günü içinde dönecek. Talebiniz lot bazlı COA ve kontrollü doküman akışına eklendi.</p>
+      <span class="ak-ref" style="color:var(--ok);">● KAYIT OLUŞTURULDU · REF — AK/REQ</span>
+      <div style="display:flex;gap:12px;margin-top:8px;">
+        <a class="anda-btn anda-btn--secondary anda-btn--md" href="/urunler"><Icon name="arrow-right" size={17} /><span>Ürün indeksine dön</span></a>
+        <a class="anda-btn anda-btn--ghost anda-btn--md" href="/"><span>Ana sayfa</span></a>
+      </div>
+    </div>
+  </div>
+</Base>

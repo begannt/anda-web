@@ -1,0 +1,100 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import products from '../../data/products.json';
+
+const families = [
+  { id: 'all', label: 'Tümü', count: products.length },
+  { id: 'pce', label: 'PCE Su Azaltıcılar', count: products.filter((p) => p.aile === 'pce').length },
+];
+---
+<Base active="index" title="Ürün İndeksi — ANDA Kimya" description="ANDA PCE beton katkı maddeleri ürün indeksi. Her ürün için ölçülmüş değer, standart ve TDS.">
+  <div class="ak-wrap ak-page">
+    <div class="ak-blockhead ak-blockhead--page">
+      <div>
+        <h2 class="ak-h2mono">01 — Ürün İndeksi</h2>
+        <p class="ak-page__sub">PCE su azaltıcı ailesi · portföy genişliyor · her ürün için ölçülmüş değer ve TDS.</p>
+      </div>
+      <span class="ak-ref">FÖY · AK/IDX/2026 · REV 00</span>
+    </div>
+
+    <div class="ak-idxbar">
+      <div class="ak-idxbar__tags" id="famtags">
+        {families.map((f, i) => (
+          <button class={`anda-tag anda-tag--button${i === 0 ? ' anda-tag--active' : ''}`} data-fam={f.id}>
+            <span>{f.label}</span><span class="n">{f.count}</span>
+          </button>
+        ))}
+      </div>
+      <div class="ak-idxbar__search">
+        <input class="anda-input" id="prodsearch" placeholder="Kod / tip ara…" />
+      </div>
+    </div>
+
+    <div class="anda-table-wrap">
+      <table class="anda-table anda-table--hover anda-table--click" id="prodtable">
+        <thead>
+          <tr>
+            <th style="width:132px">Kod</th>
+            <th>Tip</th>
+            <th>Standart</th>
+            <th>Sınıf</th>
+            <th class="ta-right">Dozaj<span class="hn">% bağlayıcı</span></th>
+            <th class="ta-center">Durum</th>
+            <th class="ta-right" style="width:52px"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((p) => (
+            <tr data-href={`/urunler/${p.slug}`} data-fam={p.aile} data-text={`${p.kod} ${p.tip}`.toLowerCase()}>
+              <td class="cell-code">{p.kod}</td>
+              <td class="cell-strong">{p.tip}</td>
+              <td><span class="anda-stdbadge"><span>{p.std}</span></span></td>
+              <td class="cell-mono">{p.sinif}</td>
+              <td class="ta-right cell-mono">{p.doz}</td>
+              <td class="ta-center"><span class={`anda-status anda-status--${p.tone}`}><span class="d"></span><span>{p.durum}</span></span></td>
+              <td class="ta-right">
+                <a class="anda-iconbtn anda-iconbtn--sm anda-iconbtn--ghost" href={`/urunler/${p.slug}`} aria-label={`İncele: ${p.kod}`}><Icon name="arrow-right" size={16} /></a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="ak-empty" id="prodempty" style="display:none">Eşleşen kayıt yok.</div>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const table = document.getElementById('prodtable');
+      const rows = Array.from(table.querySelectorAll('tbody tr'));
+      const tags = Array.from(document.querySelectorAll('#famtags .anda-tag'));
+      const search = document.getElementById('prodsearch');
+      const empty = document.getElementById('prodempty');
+      let fam = 'all';
+      const apply = () => {
+        const q = (search.value || '').toLowerCase().trim();
+        let shown = 0;
+        rows.forEach((r) => {
+          const okFam = fam === 'all' || r.dataset.fam === fam;
+          const okQ = !q || r.dataset.text.includes(q);
+          const vis = okFam && okQ;
+          r.style.display = vis ? '' : 'none';
+          if (vis) shown++;
+        });
+        empty.style.display = shown ? 'none' : '';
+      };
+      tags.forEach((t) => t.addEventListener('click', () => {
+        tags.forEach((x) => x.classList.remove('anda-tag--active'));
+        t.classList.add('anda-tag--active');
+        fam = t.dataset.fam;
+        apply();
+      }));
+      search.addEventListener('input', apply);
+      rows.forEach((r) => r.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        window.location.href = r.dataset.href;
+      }));
+    })();
+  </script>
+</Base>

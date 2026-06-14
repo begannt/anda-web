@@ -1,0 +1,50 @@
+[
+  {
+    "kod": "PCE 150 WR",
+    "slug": "pce-150-wr",
+    "aile": "pce",
+    "tip": "Su Azaltıcı",
+    "std": "TS EN 934-2",
+    "sinif": "ASTM Tip F",
+    "doz": "0,3–0,5",
+    "durum": "Uygun",
+    "tone": "ok",
+    "aciklama": "ANDA PCE 150 WR; polikarboksilat (PCE) bazlı, betonun su/bağlayıcı oranını düşürerek işlenebilirliğini ve mekanik özelliklerini artıran, yüksek oranda su azaltıcı yeni nesil süperakışkanlaştırıcıdır.",
+    "spec": [
+      { "k": "Görünüm / renk", "v": "Renksiz – açık sarı sıvı", "u": "—", "m": "Görsel" },
+      { "k": "Katı içerik", "v": "50,0 ± 2,0", "u": "%", "m": "EN 480-8" },
+      { "k": "Yoğunluk (20°C)", "v": "1,15 ± 0,05", "u": "g/cm³", "m": "EN ISO 758" },
+      { "k": "pH (20°C)", "v": "5,0 ± 1,0", "u": "—", "m": "EN 1262" },
+      { "k": "Klorür içeriği", "v": "≤ 0,10", "u": "% Cl⁻", "m": "EN 480-10" },
+      { "k": "Alkali içeriği", "v": "≤ 1,5", "u": "%", "m": "EN 480-12" },
+      { "k": "Su azaltma", "v": "≥ 25", "u": "%", "m": "EN 934-2 Çiz. 3.1/3.2" },
+      { "k": "Önerilen dozaj", "v": "0,3 – 0,5", "u": "% (bağlayıcı)", "m": "çimento ağırlığı" }
+    ],
+    "uses": ["Hazır beton (C25/30–C100/115)", "Pompa betonu", "Prekast / öngerilmeli", "Yüksek dayanım", "Kendiliğinden yerleşen (SCC)", "Düşük s/b betonlar"],
+    "lot": { "coa": "Lot bazlı", "uretim": "Gebze-Balçık", "raf": "12 ay", "ambalaj": "IBC / tanker" }
+  },
+  {
+    "kod": "PCE 150 SR",
+    "slug": "pce-150-sr",
+    "aile": "pce",
+    "tip": "Kıvam Koruyucu",
+    "std": "TS EN 934-2",
+    "sinif": "ASTM Tip G",
+    "doz": "0,5–2,5",
+    "durum": "Uygun",
+    "tone": "ok",
+    "aciklama": "ANDA PCE 150 SR; polikarboksilat (PCE) bazlı, betonun taze haldeki işlenebilirliğini uzun süre koruyan, kıvam koruyucu yeni nesil süperakışkanlaştırıcıdır.",
+    "spec": [
+      { "k": "Görünüm / renk", "v": "Renksiz – açık sarı sıvı", "u": "—", "m": "Görsel" },
+      { "k": "Katı içerik", "v": "55,0 ± 5,0", "u": "%", "m": "EN 480-8" },
+      { "k": "Yoğunluk (20°C)", "v": "1,15 ± 0,05", "u": "g/cm³", "m": "EN ISO 758" },
+      { "k": "pH (20°C)", "v": "5,0 ± 2,0", "u": "—", "m": "EN 1262" },
+      { "k": "Klorür içeriği", "v": "≤ 0,10", "u": "% Cl⁻", "m": "EN 480-10" },
+      { "k": "Alkali içeriği", "v": "≤ 1,5", "u": "%", "m": "EN 480-12" },
+      { "k": "60 dk slump kaybı", "v": "≤ 40", "u": "mm", "m": "santral reçetesi" },
+      { "k": "Önerilen dozaj", "v": "0,5 – 2,5", "u": "% (bağlayıcı)", "m": "tek / bileşik kullanım" }
+    ],
+    "uses": ["Uzun taşıma mesafeleri", "Sıcak hava dökümleri", "Hazır beton (C25/30–C100/115)", "Pompa betonu", "Kendiliğinden yerleşen (SCC)", "Sık donatılı kesitler"],
+    "lot": { "coa": "Lot bazlı", "uretim": "Gebze-Balçık", "raf": "12 ay", "ambalaj": "IBC / tanker" }
+  }
+]

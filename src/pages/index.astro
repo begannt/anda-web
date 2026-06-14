@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Seal from '../components/Seal.astro';
+import Blueprint from '../components/Blueprint.astro';
+import products from '../data/products.json';
+
+const toc = [
+  { num: '01', t: 'Ürün İndeksi', m: 'PCE AİLESİ · GENİŞLİYOR', href: '/urunler' },
+  { num: '02', t: 'PCE Teknolojisi', m: 'SU AZALTMA ≥25%', href: '/teknoloji' },
+  { num: '03', t: 'Kalite & Mevzuat', m: 'TS EN 934-2 · ASTM C494', href: '/kalite' },
+  { num: '04', t: 'Teknik Kütüphane', m: 'TDS · COA · SDS', href: '/kutuphane' },
+];
+const docs = [
+  { ic: 'TDS', t: 'Teknik Bilgi Formu', s: 'Ürün değerleri, standart, dozaj — açık erişim', action: 'Görüntüle', info: true, href: '/kutuphane' },
+  { ic: 'SDS', t: 'Güvenlik Bilgi Formu (SDS/GBF)', s: 'Kontrollü doküman — talep üzerine', action: 'Talep Et', info: false, href: '/iletisim' },
+  { ic: 'NUM', t: 'Numune', s: 'Saha denemesi için ürün numunesi', action: 'Talep Et', info: false, href: '/iletisim' },
+  { ic: 'TG', t: 'Teknik Görüşme', s: 'Uygulama / uyumluluk için teknik ekip', action: 'Talep Et', info: false, href: '/iletisim' },
+];
+const metrics = [
+  { value: '≥25', unit: '%', label: 'Su Azaltma' },
+  { value: '50–55', unit: '%', label: 'Katı içerik' },
+  { value: '6.', unit: 'nesil', label: 'PCE Teknolojisi' },
+  { value: 'WR · SR', unit: '', label: 'Ürün Hattı' },
+];
+---
+<Base active="home">
+  <div class="ak-home">
+    <!-- COVER -->
+    <section class="ak-cover">
+      <div class="ak-wrap ak-cover__grid">
+        <div class="ak-cover__l">
+          <div class="ak-docmeta">
+            <span><i class="ak-lbl">Belge tipi</i><b>Teknik Dosya</b></span>
+            <span><i class="ak-lbl">Sektör</i><b>Beton Katkı / PCE</b></span>
+            <span><i class="ak-lbl">Tesis</i><b>Gebze · Kocaeli</b></span>
+          </div>
+          <h1 class="ak-h1">Beton katkı sistemleri, belge titizliğiyle.</h1>
+          <p class="ak-lede">ANDA, beton kimyasında uluslararası ölçekte güncel formülasyon teknolojisini Gebze-Balçık üretimiyle Türkiye sahasına taşır. 6. nesil polikarboksilat eter (PCE) beton katkı maddelerini her ürün için ölçülmüş değer, standart ve dokümantasyonla sunar. Bu site bir broşür değil, bir teknik dosyadır.</p>
+          <div class="ak-toc">
+            {toc.map((x) => (
+              <a class="ak-toc__row" href={x.href}>
+                <span class="ak-toc__num">{x.num}</span>
+                <span class="ak-toc__t">{x.t}</span>
+                <span class="ak-toc__m">{x.m}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="ak-cover__r">
+          <Blueprint kind="muhur" />
+        </div>
+      </div>
+    </section>
+
+    <!-- STANDARDS STRIP -->
+    <div class="ak-specstrip">
+      <div class="ak-wrap ak-specstrip__in">
+        <div class="ak-specstrip__head"><span class="ak-lbl ak-lbl--blue">Standartlar<br />&amp; Uyumluluk</span></div>
+        <div class="ak-specstrip__items">
+          <span class="anda-stdbadge"><span class="tick"></span><span>TS EN 934-2</span><span class="k">ÇİZ. 3.1</span></span>
+          <span class="anda-stdbadge"><span>ASTM C494</span><span class="k">TİP F/G</span></span>
+          <span class="anda-stdbadge anda-stdbadge--brand"><span>KKDİK</span><span class="k">UYUMLU</span></span>
+          <span class="anda-stdbadge anda-stdbadge--solid"><span>TÜRKPATENT</span><span class="k">2026/052248</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT INDEX -->
+    <div class="ak-wrap">
+      <section class="ak-block">
+        <div class="ak-blockhead">
+          <h2 class="ak-h2mono">01 — Ürün İndeksi</h2>
+          <span class="ak-ref">PCE SU AZALTICI AİLESİ · PORTFÖY GENİŞLİYOR</span>
+        </div>
+        <div class="anda-table-wrap">
+          <table class="anda-table anda-table--hover">
+            <thead>
+              <tr>
+                <th style="width:132px">Kod</th>
+                <th>Tip</th>
+                <th>Standart</th>
+                <th>Sınıf</th>
+                <th class="ta-right">Dozaj<span class="hn">% bağlayıcı</span></th>
+                <th class="ta-center">Durum</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((p) => (
+                <tr>
+                  <td class="cell-code">{p.kod}</td>
+                  <td class="cell-strong">{p.tip}</td>
+                  <td>
+                    {p.std === '—'
+                      ? <span style="color:var(--text-faint);font-family:var(--font-mono);font-size:12px">—</span>
+                      : <span class="anda-stdbadge"><span>{p.std}</span></span>}
+                  </td>
+                  <td class="cell-mono">{p.sinif}</td>
+                  <td class="ta-right cell-mono">{p.doz}</td>
+                  <td class="ta-center">
+                    <span class={`anda-status anda-status--${p.tone}`}><span class="d"></span><span>{p.durum}</span></span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div class="ak-block__foot">
+          <a class="anda-btn anda-btn--secondary anda-btn--md" href="/urunler"><span>Tüm ürün indeksini aç</span><Icon name="arrow-right" size={17} /></a>
+        </div>
+      </section>
+    </div>
+
+    <!-- TECH SUMMARY -->
+    <div class="ak-tech">
+      <div class="ak-wrap ak-tech__grid">
+        {metrics.map((m) => (
+          <div class="ak-tech__cell">
+            <div class="anda-metric anda-metric--md">
+              <div class="val">{m.value}<span class="u">{m.unit}</span></div>
+              <div class="k">{m.label}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- DOCS & REQUEST -->
+    <div class="ak-wrap">
+      <section class="ak-block">
+        <div class="ak-blockhead">
+          <h2 class="ak-h2mono">Belge &amp; Talep</h2>
+          <span class="ak-ref">Teknik belgeler</span>
+        </div>
+        <div class="ak-docs__grid">
+          <div class="ak-docrows">
+            {docs.map((d) => (
+              <div class="ak-docrow">
+                <span class="ak-docrow__ic">{d.ic}</span>
+                <div class="ak-docrow__t"><b>{d.t}</b><span>{d.s}</span></div>
+                {d.info
+                  ? <a class="anda-btn anda-btn--ghost anda-btn--sm" href={d.href}><Icon name="file-text" size={15} /><span>{d.action}</span></a>
+                  : <a class="anda-btn anda-btn--secondary anda-btn--sm" href={d.href}><span>{d.action}</span><Icon name="arrow-right" size={15} /></a>}
+              </div>
+            ))}
+          </div>
+          <div class="ak-sealbox">
+            <Seal size={116} markSrc="/assets/anda-mark-navy.png" dot={false} />
+            <span class="ak-lbl ak-lbl--blue">Özgünlük &amp; Kontrol</span>
+            <p>Her parti, lot bazlı COA ve kontrollü doküman akışıyla izlenir.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Base>

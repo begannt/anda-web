@@ -1,0 +1,112 @@
+/* ============================================================
+   ANDA · Color Tokens
+   Philosophy: "Teknik Dosya Disiplini" — engineering-file
+   discipline. The palette is a document palette: paper, ink,
+   cool drafting greys, one locked brand blue, deep navy depth,
+   and a single forbidden-to-overuse red signature.
+
+   LOCKED BRAND COLORS (do not alter):
+   - Molecular Blue  #00679A   primary, the brand's one true hue
+   - Uzman Kızıl     #BE1522   MICRO accent only, <=5% of any view
+   - Deep Navy       #0B2B3C   premium dark ground
+   ============================================================ */
+
+:root {
+  /* ---- Brand · Molecular Blue (primary) ---------------- */
+  --anda-blue:        #00679A;  /* THE brand color — locked */
+  --blue-900:         #052E45;
+  --blue-800:         #00415F;
+  --blue-700:         #00557F;  /* primary pressed / hover-dark */
+  --blue-600:         #00679A;  /* = --anda-blue */
+  --blue-500:         #1B7AAC;
+  --blue-400:         #4E97C0;
+  --blue-300:         #8DBBD6;
+  --blue-200:         #C2DBEA;
+  --blue-100:         #E3EFF6;  /* wash / selected row */
+  --blue-50:          #F1F7FB;  /* faint tint */
+
+  /* ---- Deep Navy (premium dark grounds) ---------------- */
+  --navy:             #0B2B3C;  /* primary dark surface */
+  --navy-deep:        #081E2D;  /* deeper panel / footer base */
+  --navy-900:         #061824;
+  --navy-800:         #0B2B3C;
+  --navy-700:         #143A4D;
+  --navy-600:         #1E4A5E;  /* hairlines on navy */
+
+  /* ---- Ink + cool drafting neutrals -------------------- */
+  --ink:              #15242E;  /* primary text — blue-black */
+  --ink-soft:         #2B3B45;
+  --neutral-900:      #15242E;
+  --neutral-800:      #2B3B45;
+  --neutral-700:      #3F525C;
+  --neutral-600:      #5E727E;  /* muted / secondary text */
+  --neutral-500:      #7B8D97;
+  --neutral-400:      #9DACB4;  /* disabled text, captions */
+  --neutral-300:      #C2CDD3;
+  --neutral-250:      #D9E1E6;  /* primary hairline */
+  --neutral-200:      #E4EAEE;
+  --neutral-150:      #EAEFF2;  /* secondary hairline */
+  --neutral-100:      #F1F4F6;
+  --neutral-50:       #F7F9FA;
+  --paper:            #FFFFFF;
+
+  /* ---- Uzman Kızıl · the signature (micro only) -------- */
+  /* Use for a single tick, dot, or one-cell alert. NEVER a
+     ground, never a theme. Budget: <=5% of any visible area. */
+  --red:              #BE1522;
+  --red-press:        #9E0E1A;
+  --red-wash:         #FBECED;  /* faintest error field only */
+
+  /* ---- Functional status (kept muted & documentary) ---- */
+  --ok:               #1F7A4D;  /* conformance / pass */
+  --ok-wash:          #E8F3ED;
+  --warn:             #B5740C;  /* caution / pending */
+  --warn-wash:        #FBF1DF;
+  --info:             var(--anda-blue);
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-page:        var(--paper);
+  --surface-sunken:      var(--neutral-50);
+  --surface-card:        var(--paper);
+  --surface-muted:       var(--neutral-100);
+  --surface-inverse:     var(--navy);
+  --surface-inverse-deep:var(--navy-deep);
+  --surface-selected:    var(--blue-50);
+
+  /* Text */
+  --text-strong:         var(--ink);
+  --text-body:           var(--neutral-800);
+  --text-muted:          var(--neutral-600);
+  --text-faint:          #647480; /* a11y: AA-uyumlu silik gri (eski #9DACB4 düşük kontrasttı) */
+  --text-brand:          var(--anda-blue);
+  --text-on-inverse:     rgba(255,255,255,0.92);
+  --text-on-inverse-mut: rgba(255,255,255,0.58);
+  --text-signature:      var(--red);
+
+  /* Lines & borders (the drawing grid) */
+  --border-strong:       var(--neutral-250);
+  --border:              var(--neutral-250);
+  --border-soft:         var(--neutral-150);
+  --border-field:        var(--neutral-300);
+  --border-brand:        var(--anda-blue);
+  --border-on-inverse:   rgba(255,255,255,0.14);
+
+  /* Interactive (primary = blue) */
+  --action:              var(--anda-blue);
+  --action-hover:        var(--blue-700);
+  --action-press:        var(--blue-800);
+  --action-wash:         var(--blue-50);
+  --focus-ring:          var(--anda-blue);
+
+  /* Registration ticks / measure marks */
+  --tick:                var(--anda-blue);
+  --tick-on-inverse:     var(--blue-300);
+
+  /* Blueprint grid (used on navy plates, very low opacity) */
+  --grid-line:           rgba(0,103,154,0.10);
+  --grid-line-inverse:   rgba(120,178,210,0.12);
+}

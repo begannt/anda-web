@@ -1,0 +1,80 @@
+/* ============================================================
+   ANDA · Typography Tokens
+   "Tipografi gösteri değil, güven taşıyan bir araçtır."
+   Type is an instrument of trust, not a performance.
+
+   Families:
+   - Sans  : IBM Plex Sans — structure, headings, body
+   - Mono  : IBM Plex Mono — numbers, units, codes, labels,
+             reference strings, the "measure" voice.
+
+   Numbers are first-class citizens: tabular, mono, with units.
+   ============================================================ */
+
+:root {
+  /* ---- Families --------------------------------------- */
+  --font-sans: 'IBM Plex Sans', system-ui, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+
+  /* Semantic family aliases */
+  --font-display: var(--font-sans);  /* headings use the same sans, tightened */
+  --font-body:    var(--font-sans);
+  --font-label:   var(--font-mono);  /* the technical/measure voice */
+  --font-data:    var(--font-mono);  /* tabular numbers */
+
+  /* ---- Weights ---------------------------------------- */
+  --fw-regular:   400;  /* @kind font */
+  --fw-medium:    500;  /* @kind font */
+  --fw-semibold:  600;  /* @kind font */
+  --fw-bold:      700;  /* @kind font */
+
+  /* ---- Type scale (px) --------------------------------
+     A measured, document-like scale. Display sizes are
+     tightened; body sits at a comfortable reading size.   */
+  --fs-display:   46px;   /* cover / hero H1 */
+  --fs-h1:        36px;
+  --fs-h2:        27px;
+  --fs-h3:        21px;
+  --fs-h4:        17px;
+  --fs-body-lg:   16px;   /* lede */
+  --fs-body:      15px;   /* default body */
+  --fs-body-sm:   14px;
+  --fs-caption:   13px;
+  --fs-data-xl:   42px;   /* hero metric value */
+  --fs-data:      14px;   /* table figures */
+  --fs-label:     11px;   /* mono uppercase label */
+  --fs-label-sm:  10px;   /* fine print / doc ref */
+
+  /* ---- Line heights ----------------------------------- */
+  --lh-tight:     1.08;   /* @kind font */ /* display */
+  --lh-snug:      1.25;   /* @kind font */ /* headings */
+  --lh-normal:    1.5;    /* @kind font */ /* body */
+  --lh-relaxed:   1.7;    /* @kind font */ /* long-form / footer */
+  --lh-data:      1;      /* @kind font */ /* big numbers */
+
+  /* ---- Letter spacing --------------------------------- */
+  --ls-display:  -0.02em;  /* tighten large sans @kind font */
+  --ls-heading:  -0.01em;  /* @kind font */
+  --ls-body:      0;       /* @kind font */
+  --ls-label:     0.14em;  /* mono uppercase labels — wide @kind font */
+  --ls-label-sm:  0.10em;  /* @kind font */
+  --ls-data:      0;       /* @kind font */
+
+  /* ---- Numeric defaults ------------------------------- */
+  --num-tabular: "tnum" 1, "lnum" 1;  /* @kind other */
+}
+
+/* Utility hooks (optional, for specimen + plain HTML) */
+.anda-label {
+  font-family: var(--font-label);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: var(--fw-medium);
+}
+.anda-data {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: var(--ls-data);
+}

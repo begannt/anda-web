@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+---
+<Base active="contact" title="İletişim & Talep — ANDA Kimya" description="ANDA Kimya — numune, SDS/GBF ve teknik görüşme talebi. Gebze-Balçık üretim tesisi. info@andakimya.com">
+  <div class="ak-wrap ak-page">
+    <div class="ak-blockhead ak-blockhead--page">
+      <div>
+        <h2 class="ak-h2mono">06 — İletişim &amp; Talep</h2>
+        <p class="ak-page__sub">Numune, SDS/GBF veya teknik görüşme talebinizi iletin. Teknik ekip 1 iş günü içinde döner.</p>
+      </div>
+      <span class="ak-ref">AK/REQ/2026 · REV 00</span>
+    </div>
+
+    <div class="ak-detail__grid">
+      <!-- Sol: iletişim bilgisi -->
+      <div class="ak-detail__main">
+        <div class="anda-panel">
+          <div class="anda-panel__head"><span class="anda-panel__title">Üretim Tesisi</span><span class="anda-panel__meta">GEBZE-BALÇIK</span></div>
+          <div class="anda-panel__body">
+            <div class="ak-side__kv">
+              <div><i>Tüzel kişi</i><b>MMS Kimyasal Ürünler A.Ş.</b></div>
+              <div><i>Tesis</i><b>Gebze-Balçık</b></div>
+            </div>
+            <address class="not-italic" style="font-style:normal;margin-top:18px;font-size:14px;color:var(--text-body);line-height:1.7;">
+              Balçık Mah. 3272 Sok. No:27/1<br />Ada 324 / Parsel 18<br />Gebze / Kocaeli, Türkiye
+            </address>
+            <p style="margin-top:16px;display:flex;align-items:center;gap:9px;font-size:14px;">
+              <Icon name="mail" size={16} /><a href="mailto:info@andakimya.com" style="color:var(--anda-blue);">info@andakimya.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="anda-panel" style="margin-top:16px;">
+          <div class="anda-panel__head"><span class="anda-panel__title">Talep Tipleri</span></div>
+          <div class="anda-panel__body">
+            <div class="ak-side__kv" style="grid-template-columns:1fr;gap:12px;">
+              <div><i>Numune</i><b>Saha denemesi için ürün numunesi — ücretsiz</b></div>
+              <div><i>SDS / GBF</i><b>Kontrollü güvenlik bilgi formu — talep üzerine</b></div>
+              <div><i>Teknik görüşme</i><b>Uygulama / uyumluluk için teknik ekip</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ: Netlify Forms talep formu -->
+      <aside class="ak-detail__side" style="position:static;">
+        <div class="anda-panel">
+          <div class="anda-panel__head"><span class="anda-panel__title">Talep Formu</span><span class="anda-panel__meta">ANDA-FRM-001</span></div>
+          <div class="anda-panel__body">
+            <form name="talep" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/tesekkurler/" style="display:flex;flex-direction:column;gap:14px;">
+              <input type="hidden" name="form-name" value="talep" />
+              <p hidden><label>Boş bırakın: <input name="bot-field" /></label></p>
+
+              <div class="anda-field">
+                <label class="anda-field__label" for="firma"><span class="idx">01</span><span class="lt">Firma</span><span class="req" aria-hidden="true">●</span></label>
+                <input class="anda-input" id="firma" name="firma" placeholder="Firma adı" required />
+              </div>
+
+              <div class="anda-field">
+                <label class="anda-field__label" for="tip"><span class="idx">02</span><span class="lt">Talep tipi</span></label>
+                <div class="anda-select-wrap">
+                  <select class="anda-select" id="tip" name="talep_tipi">
+                    <option value="Numune">Numune</option>
+                    <option value="SDS / GBF">SDS / GBF</option>
+                    <option value="Teknik görüşme">Teknik görüşme</option>
+                  </select>
+                  <span class="chev"><Icon name="chevron-down" size={16} /></span>
+                </div>
+              </div>
+
+              <div class="anda-field">
+                <label class="anda-field__label" for="urun"><span class="idx">03</span><span class="lt">İlgilendiğiniz ürün</span></label>
+                <input class="anda-input anda-input--mono" id="urun" name="urun" placeholder="PCE 150 WR" />
+              </div>
+
+              <div class="anda-field">
+                <label class="anda-field__label" for="eposta"><span class="idx">04</span><span class="lt">E-posta</span><span class="req" aria-hidden="true">●</span></label>
+                <input class="anda-input" id="eposta" name="eposta" type="email" placeholder="ad@firma.com" required />
+              </div>
+
+              <div class="anda-field">
+                <label class="anda-field__label" for="not"><span class="idx">05</span><span class="lt">Notunuz</span></label>
+                <textarea class="anda-textarea" id="not" name="not" placeholder="Çimento tipi, hedef beton sınıfı, döküm/saha koşulları — paylaşırsanız teknik yanıtı buna göre hazırlarız."></textarea>
+                <span class="anda-field__help">Saha bilgisi talebinizi hızlandırır; bildiğiniz kadarını yazmanız yeterli.</span>
+              </div>
+
+              <button type="submit" class="anda-btn anda-btn--primary anda-btn--md anda-btn--full">
+                <span>Talebi Gönder</span><Icon name="arrow-right" size={17} />
+              </button>
+              <p style="font-size:11.5px;color:var(--text-faint);font-family:var(--font-mono);letter-spacing:.04em;margin:0;">KVKK · veriler yalnız talebin değerlendirilmesi için kullanılır.</p>
+            </form>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const p = new URLSearchParams(location.search);
+      const urun = p.get('urun'); const tip = p.get('tip');
+      if (urun) { const el = document.getElementById('urun'); if (el) el.value = urun; }
+      if (tip) { const el = document.getElementById('tip'); if (el) el.value = tip; }
+    })();
+  </script>
+</Base>

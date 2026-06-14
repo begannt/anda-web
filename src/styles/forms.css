@@ -1,0 +1,65 @@
+/* ANDA form CSS (formCss.js'ten) */
+.anda-field{ display:flex; flex-direction:column; gap:7px; }
+.anda-field__label{ display:flex; align-items:baseline; gap:8px; }
+.anda-field__label .lt{ font-size:13px; font-weight:var(--fw-medium); color:var(--text-strong); }
+.anda-field__label .idx{ font-family:var(--font-mono); font-size:10px; letter-spacing:.1em; color:var(--text-faint); text-transform:uppercase; }
+.anda-field__label .req{ color:var(--red); font-size:12px; line-height:1; }
+.anda-field__help{ font-size:12px; color:var(--text-muted); line-height:1.45; }
+.anda-field__err{ display:flex; align-items:center; gap:6px; font-size:12px; color:var(--red); line-height:1.4; }
+
+.anda-input, .anda-textarea, .anda-select{
+  width:100%; font-family:var(--font-sans); font-size:14px; color:var(--text-strong);
+  background:var(--paper); border:1px solid var(--border-field); border-radius:var(--radius-xs);
+  transition:border-color var(--dur-base) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard), background var(--dur-base);
+  -webkit-font-smoothing:antialiased;
+}
+.anda-input{ height:40px; padding:0 12px; }
+.anda-textarea{ padding:10px 12px; min-height:96px; resize:vertical; line-height:1.5; }
+.anda-input::placeholder, .anda-textarea::placeholder{ color:var(--text-faint); }
+.anda-input--mono{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; letter-spacing:.01em; }
+
+.anda-input:hover, .anda-textarea:hover, .anda-select:hover{ border-color:var(--neutral-400); }
+.anda-input:focus, .anda-textarea:focus, .anda-select:focus{
+  outline:none; border-color:var(--anda-blue); box-shadow:var(--shadow-focus);
+}
+.anda-field--error .anda-input,
+.anda-field--error .anda-textarea,
+.anda-field--error .anda-select{ border-color:var(--red); }
+.anda-field--error .anda-input:focus,
+.anda-field--error .anda-textarea:focus{ box-shadow:0 0 0 3px rgba(190,21,34,.18); }
+.anda-field--success .anda-input{ border-color:var(--ok); }
+
+.anda-input:disabled, .anda-textarea:disabled, .anda-select:disabled{
+  background:var(--neutral-100); color:var(--text-faint); cursor:not-allowed; border-color:var(--border-soft);
+}
+
+.anda-select-wrap{ position:relative; }
+.anda-select{ height:40px; padding:0 36px 0 12px; appearance:none; cursor:pointer; }
+.anda-select-wrap .chev{ position:absolute; right:11px; top:50%; transform:translateY(-50%); color:var(--text-muted); pointer-events:none; }
+
+.anda-check{ display:inline-flex; align-items:flex-start; gap:10px; cursor:pointer; user-select:none; }
+.anda-check input{ position:absolute; opacity:0; width:0; height:0; }
+.anda-check .box{ width:18px; height:18px; flex:0 0 auto; margin-top:1px; border:1px solid var(--border-field);
+  border-radius:var(--radius-xs); background:var(--paper); display:flex; align-items:center; justify-content:center;
+  color:#fff; transition:background var(--dur-base), border-color var(--dur-base); }
+.anda-check .box svg{ opacity:0; transition:opacity var(--dur-fast); }
+.anda-check input:checked + .box{ background:var(--anda-blue); border-color:var(--anda-blue); }
+.anda-check input:checked + .box svg{ opacity:1; }
+.anda-check input:focus-visible + .box{ box-shadow:var(--shadow-focus); }
+.anda-check--radio .box{ border-radius:var(--radius-pill); }
+.anda-check--radio .dot{ width:8px; height:8px; border-radius:var(--radius-pill); background:#fff; opacity:0; transition:opacity var(--dur-fast); }
+.anda-check--radio input:checked + .box .dot{ opacity:1; }
+.anda-check .lbl{ font-size:13.5px; color:var(--text-strong); line-height:1.4; }
+.anda-check input:disabled ~ .lbl{ color:var(--text-faint); }
+.anda-check input:disabled + .box{ background:var(--neutral-100); }
+
+.anda-switch{ display:inline-flex; align-items:center; gap:10px; cursor:pointer; user-select:none; }
+.anda-switch input{ position:absolute; opacity:0; width:0; height:0; }
+.anda-switch .track{ width:38px; height:22px; border-radius:var(--radius-pill); background:var(--neutral-300);
+  position:relative; transition:background var(--dur-base) var(--ease-standard); flex:0 0 auto; }
+.anda-switch .knob{ position:absolute; top:2px; left:2px; width:18px; height:18px; border-radius:var(--radius-pill);
+  background:#fff; box-shadow:0 1px 2px rgba(8,30,45,.25); transition:transform var(--dur-base) var(--ease-standard); }
+.anda-switch input:checked + .track{ background:var(--anda-blue); }
+.anda-switch input:checked + .track .knob{ transform:translateX(16px); }
+.anda-switch input:focus-visible + .track{ box-shadow:var(--shadow-focus); }
+.anda-switch .lbl{ font-size:13.5px; color:var(--text-strong); }

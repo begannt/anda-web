@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const {
+  title = 'ANDA Kimya — Teknik Dosya',
+  description = '6. nesil PCE beton katkı maddeleri. Gebze üretim tesisi. TS EN 934-2, ASTM C494. MMS Kimyasal Ürünler A.Ş.',
+  active = 'home',
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://www.andakimya.com').href;
+const ogImage = new URL('/og.png', Astro.site ?? 'https://www.andakimya.com').href;
+---
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/assets/anda-mark-blue.png" />
+    <link rel="apple-touch-icon" href="/assets/anda-mark-blue.png" />
+    <meta name="theme-color" content="#00679A" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ANDA Kimya" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body>
+    <div class="ak-app">
+      <div class="ak-topref">
+        <div class="ak-wrap">
+          <div class="anda-docref" style="background:transparent;border:0;padding:7px 0;">
+            <span class="anda-docref__l">ANDA KİMYA · MMS KİMYASAL ÜRÜNLER A.Ş. · TEKNİK DOSYA</span>
+            <span class="anda-docref__r"><span>BELGE NO: AK/WEB/2026</span><span class="anda-docref__sep">·</span><b>REV 00</b></span>
+          </div>
+        </div>
+      </div>
+      <Header active={active} />
+      <main class="ak-main"><slot /></main>
+      <Footer />
+    </div>
+  </body>
+</html>
