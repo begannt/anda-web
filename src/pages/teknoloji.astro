@@ -21,17 +21,31 @@ const lines = [
     rows: [['Ana işlev', 'Kıvam (slump) koruma'], ['60 dk slump kaybı', '≤ 40 mm'], ['Dozaj', '%0,5 – 2,5 (bağlayıcı)']],
   },
 ];
+const items = [
+  { t: 'TS EN 934-2', m: 'BETON KATKI STANDARDI', st: 'ok', sl: 'Hedeflenen',
+    d: 'Beton katkı maddeleri için Türk/Avrupa standardı. ANDA WR ürünleri Çizim 3.1/3.2 (su azaltıcı), SR ürünleri Çizim 11.1/11.2 (kıvam koruyucu) koşullarını hedefler.' },
+  { t: 'ASTM C494', m: 'AMERİKAN STANDARDI', st: 'ok', sl: 'Geçerli',
+    d: 'WR → Tip F (yüksek oranlı su azaltıcı), SR → Tip G. İhracat ve uluslararası projeler için geçerli referans.' },
+  { t: 'KKDİK Uyumu', m: 'KİMYASAL MEVZUAT', st: 'ok', sl: 'Uyumlu',
+    d: 'Güvenlik bilgi formları (SDS/GBF) KKDİK Ek-2 formatında, Kimyasal Değerlendirme Uzmanı (KDU) imzasıyla hazırlanır. Kimyasal kayıt ve bildirim yükümlülükleri mevzuata uygun olarak yürütülür.' },
+  { t: 'ÇED Olumlu', m: 'ÇEVRESEL DEĞERLENDİRME', st: 'ok', sl: 'Alındı',
+    d: 'Gebze-Balçık üretim tesisi için Kocaeli Valiliği tarafından ÇED Olumlu kararı verilmiştir.' },
+  { t: 'TÜRKPATENT — 2026/052248', m: 'MARKA TESCİLİ', st: 'info', sl: 'Başvuru',
+    d: 'ANDA marka tescil başvurusu Sınıf 1 ve Sınıf 19 kapsamında sürmektedir. Logo, resmî dilde "soyut insan figürü" olarak beyan edilmiştir.' },
+  { t: 'Belge Yol Haritası', m: 'SÜREÇ DEVAM EDİYOR', st: 'warn', sl: 'Sürüyor',
+    d: 'CE-CPR / EN 934-2 (Onaylanmış Kuruluş + ITT) · ISO 9001 / 14001 / 45001 · İşyeri açma ruhsatı · Sanayi sicil. Kademeli olarak tamamlanmaktadır.' },
+];
 ---
-<Base active="tech" title="PCE Teknolojisi — ANDA Kimya" description="6. nesil polikarboksilat eter (PCE) teknolojisi: su azaltma ≥%25 ve WR / SR ürün hatları.">
+<Base active="tech" title="Teknoloji & Kalite — ANDA Kimya" description="ANDA 6. nesil PCE teknolojisi (su azaltma ≥%25, WR/SR) ile kalite ve mevzuat: TS EN 934-2, ASTM C494, KKDİK, TÜRKPATENT.">
   <div class="ak-wrap ak-page">
     <div class="ak-blockhead ak-blockhead--page">
       <div>
-        <h2 class="ak-h2mono">02 — PCE Teknolojisi</h2>
-        <p class="ak-page__sub">Polikarboksilat eter (PCE) bazlı yeni nesil süperakışkanlaştırıcılar — ölçülmüş değer ve standartla.</p>
+        <h2 class="ak-h2mono">Teknoloji & Kalite</h2>
+        <p class="ak-page__sub">6. nesil polikarboksilat eter (PCE) teknolojisi; ölçülmüş değer, standart ve mevzuat uyumu ile.</p>
       </div>
     </div>
 
-    <p class="ak-lede" style="max-width:62ch;">PCE polimerleri, çimento tanecikleri arasındaki dağılımı düzenleyerek aynı işlenebilirlikte daha az su gerektirir. Daha düşük su/bağlayıcı oranı; daha yüksek dayanım, daha düşük geçirimlilik ve daha öngörülebilir saha performansı demektir. ANDA bu formülasyonu uluslararası ölçekte güncel teknolojiyle kurar, Gebze-Balçık'ta üretir ve her parti için belgeyle teslim eder.</p>
+    <p class="ak-lede" style="max-width:62ch;">PCE polimerleri, çimento tanecikleri arasındaki dağılımı düzenleyerek aynı işlenebilirlikte daha az su gerektirir. Daha düşük su/bağlayıcı oranı; daha yüksek dayanım, daha düşük geçirimlilik ve daha öngörülebilir saha performansı demektir. ANDA bu formülasyonu güncel kuşak teknolojiyle kurar, Gebze-Balçık'ta üretir ve her parti için belgeyle teslim eder.</p>
     <div class="ak-bp-band"><Blueprint kind="etki" /></div>
   </div>
 
@@ -65,9 +79,34 @@ const lines = [
       ))}
     </div>
 
-    <div class="ak-block__foot" style="justify-content:flex-start;margin-top:30px;gap:12px;display:flex;">
-      <a class="anda-btn anda-btn--secondary anda-btn--md" href="/urunler"><span>Ürün indeksini aç</span><Icon name="arrow-right" size={17} /></a>
-      <a class="anda-btn anda-btn--ghost anda-btn--md" href="/iletisim"><Icon name="mail" size={17} /><span>Teknik görüşme</span></a>
+    <!-- KALİTE & MEVZUAT (birleştirildi) -->
+    <div class="ak-blockhead" style="margin-top:56px;"><h2 class="ak-h2mono">Kalite & Mevzuat</h2><span class="ak-ref">STANDART · UYUM · TESCİL</span></div>
+    <div class="ak-specstrip" style="border-top:1px solid var(--border);margin-bottom:30px;">
+      <div class="ak-specstrip__in" style="padding:0;">
+        <div class="ak-specstrip__items" style="padding-left:0;">
+          <span class="anda-stdbadge"><span class="tick"></span><span>TS EN 934-2</span></span>
+          <span class="anda-stdbadge"><span>ASTM C494</span><span class="k">TİP F/G</span></span>
+          <span class="anda-stdbadge anda-stdbadge--brand"><span>KKDİK</span><span class="k">UYUMLU</span></span>
+          <span class="anda-stdbadge anda-stdbadge--solid"><span>TÜRKPATENT</span><span class="k">2026/052248</span></span>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 36px;border-top:1px solid var(--border);">
+      {items.map((it) => (
+        <div style="padding:26px 0;border-bottom:1px solid var(--border-soft);">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;">
+            <div class="ak-lbl ak-lbl--blue">{it.m}</div>
+            <span class={`anda-status anda-status--${it.st}`}><span class="d"></span><span>{it.sl}</span></span>
+          </div>
+          <h3 style="font-size:18px;font-weight:var(--fw-bold);letter-spacing:-0.01em;margin:0 0 10px;color:var(--text-strong);">{it.t}</h3>
+          <p style="font-size:14px;color:var(--text-body);line-height:1.7;margin:0;">{it.d}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="ak-block__foot" style="justify-content:flex-start;margin-top:36px;gap:12px;display:flex;flex-wrap:wrap;">
+      <a class="anda-btn anda-btn--primary anda-btn--md" href="/iletisim"><span>Teklif iste</span><Icon name="arrow-right" size={17} /></a>
+      <a class="anda-btn anda-btn--ghost anda-btn--md" href="/urunler"><span>Ürünler</span></a>
     </div>
   </div>
 </Base>

@@ -8,13 +8,28 @@ const families = [
   { id: 'pce', label: 'PCE Su Azaltıcılar', count: products.filter((p) => p.aile === 'pce').length },
 ];
 ---
-<Base active="index" title="Ürün İndeksi — ANDA Kimya" description="ANDA PCE beton katkı maddeleri ürün indeksi. Her ürün için ölçülmüş değer, standart ve TDS.">
+<Base active="index" title="Ürünler — ANDA Kimya" description="ANDA PCE beton katkı maddeleri. Katalog açık erişim; teknik belgeler (TDS/SDS/COA) talep üzerine.">
   <div class="ak-wrap ak-page">
     <div class="ak-blockhead ak-blockhead--page">
       <div>
-        <h2 class="ak-h2mono">01 — Ürün İndeksi</h2>
-        <p class="ak-page__sub">PCE su azaltıcı ailesi · portföy genişliyor · her ürün için ölçülmüş değer ve TDS.</p>
-      </div>    </div>
+        <h2 class="ak-h2mono">Ürünler</h2>
+        <p class="ak-page__sub">PCE su azaltıcı ailesi · portföy genişliyor. Ürünleri açık erişimli katalog ile tanıtırız; teknik belgeler talep üzerine paylaşılır.</p>
+      </div>
+    </div>
+
+    <!-- Belgeler (Kütüphane buraya taşındı; sadeleştirildi) -->
+    <div class="ak-docrows" style="margin-bottom:42px;">
+      <div class="ak-docrow">
+        <span class="ak-docrow__ic">KAT</span>
+        <div class="ak-docrow__t"><b>Katalog</b><span>Performans değerleri ve ürün tanıtımı — açık erişim, yakında.</span></div>
+        <span class="anda-btn anda-btn--ghost anda-btn--sm" style="cursor:default;opacity:.7;"><span>Yakında</span></span>
+      </div>
+      <div class="ak-docrow">
+        <span class="ak-docrow__ic">BLG</span>
+        <div class="ak-docrow__t"><b>Teknik belgeler — TDS · SDS · COA</b><span>Kontrollü belgelerdir; detaylar için bizimle iletişime geçin.</span></div>
+        <a class="anda-btn anda-btn--secondary anda-btn--sm" href="/iletisim"><span>İletişim</span><Icon name="arrow-right" size={15} /></a>
+      </div>
+    </div>
 
     <div class="ak-idxbar">
       <div class="ak-idxbar__tags" id="famtags">

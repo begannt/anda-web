@@ -7,15 +7,12 @@ import products from '../data/products.json';
 
 const toc = [
   { num: '01', t: 'Ürünler', m: 'PCE AİLESİ · GENİŞLİYOR', href: '/urunler' },
-  { num: '02', t: 'PCE Teknolojisi', m: 'SU AZALTMA ≥%25', href: '/teknoloji' },
-  { num: '03', t: 'Kalite & Mevzuat', m: 'TS EN 934-2 · ASTM C494', href: '/kalite' },
-  { num: '04', t: 'Teknik Kütüphane', m: 'KATALOG · TDS · SDS', href: '/kutuphane' },
+  { num: '02', t: 'Teknoloji & Kalite', m: 'SU AZALTMA ≥%25 · TS EN 934-2', href: '/teknoloji' },
+  { num: '03', t: 'Hakkımızda & İletişim', m: 'TEKLİF · TEKNİK GÖRÜŞME', href: '/iletisim' },
 ];
 const docs = [
-  { ic: 'KAT', t: 'Katalog', s: 'Performans değerleri ve ürün tanıtımı — açık erişim', action: 'Yakında', info: true, href: '/kutuphane' },
-  { ic: 'TDS', t: 'Teknik Bilgi Formu', s: 'Ürün değerleri, standart, dozaj — talep üzerine', action: 'Talep Et', info: false, href: '/iletisim' },
-  { ic: 'SDS', t: 'Güvenlik Bilgi Formu (SDS/GBF)', s: 'Kontrollü doküman — talep üzerine', action: 'Talep Et', info: false, href: '/iletisim' },
-  { ic: 'TG', t: 'Teknik Görüşme', s: 'Uygulama ve uyumluluk için teknik ekip', action: 'Talep Et', info: false, href: '/iletisim' },
+  { ic: 'KAT', t: 'Katalog', s: 'Performans değerleri ve ürün tanıtımı — açık erişim, yakında.', action: 'Yakında', info: true, href: '/urunler' },
+  { ic: 'BLG', t: 'Teknik belgeler — TDS · SDS · COA', s: 'Kontrollü belgelerdir; detaylar için iletişime geçin.', action: 'İletişim', info: false, href: '/iletisim' },
 ];
 const metrics = [
   { value: '≥25', unit: '%', label: 'Su azaltma · WR' },
@@ -52,7 +49,7 @@ const forwho = [
           <h1 class="ak-h1">Beton katkı sistemleri, belge titizliğiyle.</h1>
           <p class="ak-lede">ANDA, polikarboksilat eter (PCE) bazlı beton katkılarını Gebze-Balçık’taki tesisinde üreten bir yapı kimyasalları markasıdır. Beton kimyasındaki en güncel kuşak teknolojiyi Türkiye sahasına getirir.</p>
           <p class="ak-lede ak-lede--sub">Her ürünün arkasında ölçülmüş değer, geçerli standart ve eksiksiz dokümantasyon vardır. Sözünü reklamla değil, sahadaki performansla ve teknik belgeyle verir.</p>
-          <a class="ak-herolink" href="/hakkimizda"><span>Hakkımızda</span><Icon name="arrow-right" size={16} /></a>
+          <a class="ak-herolink" href="/iletisim#hakkimizda"><span>Hakkımızda</span><Icon name="arrow-right" size={16} /></a>
           <div class="ak-toc">
             {toc.map((x) => (
               <a class="ak-toc__row" href={x.href}>

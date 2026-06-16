@@ -1,18 +1,36 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import Blueprint from '../components/Blueprint.astro';
 ---
-<Base active="contact" title="İletişim & Talep — ANDA Kimya" description="ANDA Kimya — teklif, teknik belge ve teknik görüşme talebi. Gebze-Balçık üretim tesisi. info@andakimya.com">
+<Base active="contact" title="Hakkımızda & İletişim — ANDA Kimya" description="ANDA Kimya — Gebze-Balçık'ta 6. nesil PCE beton katkı üreticisi. Teklif, teknik belge ve teknik görüşme talebi. info@andakimya.com">
   <div class="ak-wrap ak-page">
     <div class="ak-blockhead ak-blockhead--page">
       <div>
-        <h2 class="ak-h2mono">06 — İletişim &amp; Talep</h2>
-        <p class="ak-page__sub">Teklif, teknik belge veya teknik görüşme talebinizi iletin. Teknik ekip 1 iş günü içinde döner.</p>
+        <h2 class="ak-h2mono">Hakkımızda & İletişim</h2>
+        <p class="ak-page__sub">ANDA'yı tanıyın; teklif, teknik belge veya teknik görüşme için ulaşın.</p>
       </div>
     </div>
 
+    <!-- HAKKIMIZDA -->
+    <div class="ak-detail__grid" id="hakkimizda">
+      <div class="ak-detail__main">
+        <h1 class="ak-h1 ak-h1--sm">Ölçülmüş değer ve belgeyle üretilen beton katkı kimyasalları.</h1>
+        <p class="ak-lede" style="max-width:60ch;">ANDA, beton kimyasında faaliyet gösteren bir yapı kimyasalları markasıdır. Güncel kuşak formülasyon teknolojisini Gebze-Balçık üretimiyle Türkiye sahasına taşır; 6. nesil polikarboksilat eter (PCE) beton katkılarını ölçülmüş değer ve belgeyle üretir.</p>
+        <p style="font-size:15px;color:var(--text-body);line-height:1.75;max-width:60ch;">Başlangıç odağımız Marmara bölgesi hazır beton üreticileri. Hızlı değil, doğru büyümeyi seçiyoruz: portföyü ölçülü genişletmek, her ürünü standart ve belgeyle çıkarmak, sahada sözün arkasında durmak.</p>
+        <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;">
+          <a class="anda-btn anda-btn--secondary anda-btn--md" href="/urunler"><span>Ürünler</span><Icon name="arrow-right" size={17} /></a>
+          <a class="anda-btn anda-btn--ghost anda-btn--md" href="/teknoloji"><span>Teknoloji & Kalite</span></a>
+        </div>
+      </div>
+      <aside class="ak-detail__side" style="position:static;">
+        <Blueprint kind="akis" />
+      </aside>
+    </div>
+
+    <!-- İLETİŞİM & TALEP -->
+    <div class="ak-blockhead" style="margin-top:56px;"><h2 class="ak-h2mono">İletişim & Talep</h2><span class="ak-ref">TEKLİF · BELGE · GÖRÜŞME</span></div>
     <div class="ak-detail__grid">
-      <!-- Sol: iletişim bilgisi -->
       <div class="ak-detail__main">
         <div class="anda-panel">
           <div class="anda-panel__head"><span class="anda-panel__title">Üretim Tesisi</span><span class="anda-panel__meta">GEBZE-BALÇIK</span></div>
@@ -42,7 +60,7 @@ import Icon from '../components/Icon.astro';
         </div>
       </div>
 
-      <!-- Sağ: Netlify Forms talep formu -->
+      <!-- Netlify Forms talep formu -->
       <aside class="ak-detail__side" style="position:static;">
         <div class="anda-panel">
           <div class="anda-panel__head"><span class="anda-panel__title">Talep Formu</span></div>
