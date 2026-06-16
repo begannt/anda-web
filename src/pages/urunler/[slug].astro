@@ -24,7 +24,7 @@ const { p } = Astro.props;
         <span class={`anda-status anda-status--${p.tone}`}><span class="d"></span><span>{p.durum}</span></span>
       </div>
       <h1 class="ak-h1 ak-h1--sm">{p.tip}</h1>
-      <p class="ak-lede">{p.aciklama} Her parti ölçülmüş değer ve lot bazlı belgeyle teslim edilir.</p>
+      <p class="ak-lede">{p.aciklama}</p>
       <div class="ak-detail__badges">
         <span class="anda-stdbadge"><span class="tick"></span><span>{p.std}</span></span>
         <span class="anda-stdbadge"><span>{p.sinif}</span></span>
@@ -34,37 +34,18 @@ const { p } = Astro.props;
     <div class="ak-detail__grid">
       <div class="ak-detail__main">
         <div class="ak-blockhead">
-          <h2 class="ak-h2mono">Teknik Değerler</h2>
-          <span class="ak-ref">Ürün bilgi formundan</span>
+          <h2 class="ak-h2mono">Öne Çıkan Performans</h2>
+          <span class="ak-ref">GÜÇLÜ YANLAR</span>
         </div>
-        <div class="anda-regframe" style="padding:6px;">
-          <span class="anda-regframe__tick" style="top:-6px;left:-6px;"></span>
-          <span class="anda-regframe__tick" style="top:-6px;right:-6px;transform:scaleX(-1);"></span>
-          <span class="anda-regframe__tick" style="bottom:-6px;left:-6px;transform:scaleY(-1);"></span>
-          <span class="anda-regframe__tick" style="bottom:-6px;right:-6px;transform:scale(-1,-1);"></span>
-          <div class="anda-table-wrap">
-            <table class="anda-table">
-              <thead>
-                <tr>
-                  <th>Özellik</th>
-                  <th class="ta-right">Değer</th>
-                  <th style="width:120px">Birim</th>
-                  <th>Yöntem / Not</th>
-                </tr>
-              </thead>
-              <tbody>
-                {p.spec.map((s) => (
-                  <tr>
-                    <td class="cell-strong">{s.k}</td>
-                    <td class="ta-right cell-mono">{s.v}</td>
-                    <td class="cell-mono">{s.u}</td>
-                    <td class="cell-mono">{s.m}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {p.headline && (
+          <div class="ak-headline">
+            <span class="v">{p.headline.v}<i>{p.headline.u}</i></span>
           </div>
-          <span class="anda-regframe__ref">{`AK/TDS/${p.kod.replace(/\s/g, '')} · REV 00`}</span>
+        )}
+        <div class="ak-strengths">
+          {p.strengths.map((s) => (
+            <div class="ak-strength"><span class="ak-use__tick"></span><span>{s}</span></div>
+          ))}
         </div>
 
         <div class="ak-block" style="border-bottom:0;">
@@ -79,13 +60,14 @@ const { p } = Astro.props;
 
       <aside class="ak-detail__side">
         <div class="anda-panel">
-          <div class="anda-panel__head"><span class="anda-panel__title">Belge &amp; Talep</span><span class="anda-panel__meta">REV 00</span></div>
+          <div class="anda-panel__head"><span class="anda-panel__title">Belgeler</span></div>
           <div class="anda-panel__body">
+            <p class="ak-side__note">Katalog açık erişimdedir. TDS, SDS/GBF ve COA kontrollü belgelerdir; talep üzerine paylaşılır.</p>
             <div class="ak-side__actions">
-              <a class="anda-btn anda-btn--secondary anda-btn--md anda-btn--full" href="/kutuphane"><Icon name="file-text" size={17} /><span>TDS Görüntüle</span></a>
-              <a class="anda-btn anda-btn--secondary anda-btn--md anda-btn--full" href="/iletisim"><span>SDS / GBF Talep Et</span><Icon name="external-link" size={17} /></a>
-              <a class="anda-btn anda-btn--primary anda-btn--md anda-btn--full" href="/iletisim"><span>Numune Talep Et</span><Icon name="arrow-right" size={17} /></a>
-              <a class="anda-btn anda-btn--ghost anda-btn--md anda-btn--full" href="/iletisim"><Icon name="mail" size={17} /><span>Teknik Görüşme</span></a>
+              <span class="anda-btn anda-btn--ghost anda-btn--md anda-btn--full" style="cursor:default;opacity:.7;"><Icon name="file-text" size={17} /><span>Katalog — Yakında</span></span>
+              <a class="anda-btn anda-btn--secondary anda-btn--md anda-btn--full" href="/iletisim"><span>TDS Talep Et</span><Icon name="arrow-right" size={17} /></a>
+              <a class="anda-btn anda-btn--secondary anda-btn--md anda-btn--full" href="/iletisim"><span>SDS / GBF Talep Et</span><Icon name="arrow-right" size={17} /></a>
+              <a class="anda-btn anda-btn--primary anda-btn--md anda-btn--full" href="/iletisim"><Icon name="mail" size={17} /><span>Teknik Görüşme</span></a>
             </div>
           </div>
         </div>
@@ -103,7 +85,7 @@ const { p } = Astro.props;
         </div>
 
         <div class="ak-back">
-          <a class="anda-btn anda-btn--ghost anda-btn--sm" href="/urunler"><Icon name="arrow-right" size={15} /><span>İndekse dön</span></a>
+          <a class="anda-btn anda-btn--ghost anda-btn--sm" href="/urunler"><Icon name="arrow-right" size={15} /><span>Ürünlere dön</span></a>
         </div>
       </aside>
     </div>

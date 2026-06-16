@@ -4,19 +4,19 @@ import Icon from '../components/Icon.astro';
 import products from '../data/products.json';
 
 const docs = [
-  { ic: 'TDS', t: 'Teknik Bilgi Formu', s: 'Ürün değerleri, standart, dozaj. Açık erişim (yakında yayınlanacak).', action: 'Yakında', info: true },
-  { ic: 'COA', t: 'Analiz Sertifikası', s: 'Lot bazlı kalite kontrol sonuçları — ürünle teslim / talep üzerine.', action: 'Talep Et', info: false },
-  { ic: 'SDS', t: 'Güvenlik Bilgi Formu (SDS/GBF)', s: 'KKDİK Ek-2 formatında, KDU imzalı kontrollü doküman.', action: 'Talep Et', info: false },
+  { ic: 'KAT', t: 'Katalog', s: 'Performans değerleri ve ürün tanıtımı. Açık erişim — yakında yayınlanacak.', action: 'Yakında', info: true, href: '/urunler' },
+  { ic: 'TDS', t: 'Teknik Bilgi Formu', s: 'Ürün değerleri, standart ve dozaj. Kontrollü belge — talep üzerine.', action: 'Talep Et', info: false, href: '/iletisim?tip=TDS / Katalog' },
+  { ic: 'SDS', t: 'Güvenlik Bilgi Formu (SDS/GBF)', s: 'KKDİK Ek-2 formatında, KDU imzalı kontrollü doküman.', action: 'Talep Et', info: false, href: '/iletisim?tip=SDS / GBF' },
+  { ic: 'COA', t: 'Analiz Sertifikası', s: 'Lot bazlı kalite kontrol sonuçları — talep üzerine / ürünle.', action: 'Talep Et', info: false, href: '/iletisim' },
 ];
 ---
-<Base active="lib" title="Teknik Kütüphane — ANDA Kimya" description="ANDA TDS · COA · SDS doküman kütüphanesi. Kontrollü doküman akışı ve talep mantığı.">
+<Base active="lib" title="Teknik Kütüphane — ANDA Kimya" description="ANDA katalog, TDS, SDS ve COA. Katalog açık erişim; teknik belgeler talep üzerine paylaşılır.">
   <div class="ak-wrap ak-page">
     <div class="ak-blockhead ak-blockhead--page">
       <div>
-        <h2 class="ak-h2mono">04 — Teknik Kütüphane</h2>
-        <p class="ak-page__sub">TDS · COA · SDS belgeleri. Kontrollü dokümanlar talep üzerine sunulur.</p>
+        <h2 class="ak-h2mono">Teknik Kütüphane</h2>
+        <p class="ak-page__sub">Ürünlerimizi açık erişimli <b>katalog</b> ile tanıtırız. TDS, SDS/GBF ve COA kontrollü belgelerdir; talep üzerine paylaşılır.</p>
       </div>
-      <span class="ak-ref">AK/LIB/2026 · REV 00</span>
     </div>
 
     <!-- Ürün doküman indeksi -->
@@ -24,12 +24,12 @@ const docs = [
       <table class="anda-table anda-table--hover">
         <thead>
           <tr>
-            <th style="width:132px">Kod</th>
+            <th style="width:168px">Ürün</th>
             <th>Tip</th>
-            <th>Standart</th>
+            <th class="ta-center">Katalog</th>
             <th class="ta-center">TDS</th>
-            <th class="ta-center">COA</th>
             <th class="ta-center">SDS</th>
+            <th class="ta-center">COA</th>
           </tr>
         </thead>
         <tbody>
@@ -37,10 +37,10 @@ const docs = [
             <tr data-href={`/urunler/${p.slug}`} style="cursor:pointer;">
               <td class="cell-code">{p.kod}</td>
               <td class="cell-strong">{p.tip}</td>
-              <td><span class="anda-stdbadge"><span>{p.std}</span></span></td>
               <td class="ta-center"><span class="ak-ref" style="color:var(--text-faint);">YAKINDA</span></td>
+              <td class="ta-center"><a class="anda-stdbadge anda-stdbadge--brand" href="/iletisim?tip=TDS / Katalog" style="cursor:pointer;"><span>Talep</span></a></td>
               <td class="ta-center"><a class="anda-stdbadge anda-stdbadge--brand" href="/iletisim?tip=SDS / GBF" style="cursor:pointer;"><span>Talep</span></a></td>
-              <td class="ta-center"><a class="anda-stdbadge anda-stdbadge--brand" href="/iletisim?tip=SDS / GBF" style="cursor:pointer;"><span>Talep</span></a></td>
+              <td class="ta-center"><a class="anda-stdbadge anda-stdbadge--brand" href="/iletisim" style="cursor:pointer;"><span>Talep</span></a></td>
             </tr>
           ))}
         </tbody>
@@ -56,7 +56,7 @@ const docs = [
             <div class="ak-docrow__t"><b>{d.t}</b><span>{d.s}</span></div>
             {d.info
               ? <span class="anda-btn anda-btn--ghost anda-btn--sm" style="cursor:default;opacity:.7;"><span>{d.action}</span></span>
-              : <a class="anda-btn anda-btn--secondary anda-btn--sm" href="/iletisim"><span>{d.action}</span><Icon name="arrow-right" size={15} /></a>}
+              : <a class="anda-btn anda-btn--secondary anda-btn--sm" href={d.href}><span>{d.action}</span><Icon name="arrow-right" size={15} /></a>}
           </div>
         ))}
       </div>
@@ -64,7 +64,7 @@ const docs = [
   </div>
 
   <script is:inline>
-    document.querySelectorAll('#__noop, .anda-table tbody tr[data-href]').forEach((r) => {
+    document.querySelectorAll('.anda-table tbody tr[data-href]').forEach((r) => {
       r.addEventListener('click', (e) => { if (e.target.closest('a')) return; window.location.href = r.dataset.href; });
     });
   </script>

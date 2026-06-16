@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
 
 const items = [
   {
@@ -35,7 +36,6 @@ const items = [
         <h2 class="ak-h2mono">03 — Kalite &amp; Mevzuat</h2>
         <p class="ak-page__sub">Her ürün ölçülmüş değer, standart ve dokümantasyonla desteklenir; belge süreçleri kademeli olarak ilerler.</p>
       </div>
-      <span class="ak-ref">AK/QA/2026 · REV 00</span>
     </div>
 
     <!-- Standart şeridi -->
@@ -61,6 +61,11 @@ const items = [
           <p style="font-size:14px;color:var(--text-body);line-height:1.7;margin:0;">{it.d}</p>
         </div>
       ))}
+    </div>
+
+    <div class="ak-block__foot" style="justify-content:flex-start;margin-top:32px;gap:12px;display:flex;flex-wrap:wrap;">
+      <a class="anda-btn anda-btn--primary anda-btn--md" href="/iletisim"><span>Teklif iste</span><Icon name="arrow-right" size={17} /></a>
+      <a class="anda-btn anda-btn--ghost anda-btn--md" href="/kutuphane"><Icon name="file-text" size={17} /><span>Belgeler &amp; kütüphane</span></a>
     </div>
   </div>
 </Base>

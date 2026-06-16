@@ -14,9 +14,7 @@ const families = [
       <div>
         <h2 class="ak-h2mono">01 — Ürün İndeksi</h2>
         <p class="ak-page__sub">PCE su azaltıcı ailesi · portföy genişliyor · her ürün için ölçülmüş değer ve TDS.</p>
-      </div>
-      <span class="ak-ref">FÖY · AK/IDX/2026 · REV 00</span>
-    </div>
+      </div>    </div>
 
     <div class="ak-idxbar">
       <div class="ak-idxbar__tags" id="famtags">
@@ -35,7 +33,7 @@ const families = [
       <table class="anda-table anda-table--hover anda-table--click" id="prodtable">
         <thead>
           <tr>
-            <th style="width:132px">Kod</th>
+            <th style="width:168px">Ürün</th>
             <th>Tip</th>
             <th>Standart</th>
             <th>Sınıf</th>
@@ -62,6 +60,11 @@ const families = [
       </table>
     </div>
     <div class="ak-empty" id="prodempty" style="display:none">Eşleşen kayıt yok.</div>
+
+    <div class="ak-block__foot" style="justify-content:flex-start;margin-top:30px;gap:12px;display:flex;flex-wrap:wrap;">
+      <a class="anda-btn anda-btn--primary anda-btn--md" href="/iletisim"><span>Teklif iste</span><Icon name="arrow-right" size={17} /></a>
+      <a class="anda-btn anda-btn--ghost anda-btn--md" href="/iletisim"><Icon name="mail" size={17} /><span>Teknik görüşme</span></a>
+    </div>
   </div>
 
   <script is:inline>

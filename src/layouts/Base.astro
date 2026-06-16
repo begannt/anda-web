@@ -36,17 +36,27 @@ const ogImage = new URL('/og.png', Astro.site ?? 'https://www.andakimya.com').hr
   </head>
   <body>
     <div class="ak-app">
-      <div class="ak-topref">
-        <div class="ak-wrap">
-          <div class="anda-docref" style="background:transparent;border:0;padding:7px 0;">
-            <span class="anda-docref__l">ANDA KİMYA · MMS KİMYASAL ÜRÜNLER A.Ş. · TEKNİK DOSYA</span>
-            <span class="anda-docref__r"><span>BELGE NO: AK/WEB/2026</span><span class="anda-docref__sep">·</span><b>REV 00</b></span>
-          </div>
-        </div>
-      </div>
       <Header active={active} />
       <main class="ak-main"><slot /></main>
       <Footer />
     </div>
+    <!-- KVKK çerez bildirimi (yalnız zorunlu çerez) -->
+    <div class="ak-cookie" id="ak-cookie" hidden>
+      <p>Bu sitede yalnızca sitenin çalışması için <b>zorunlu çerezler</b> kullanılır; reklam veya izleme çerezi yoktur. Ayrıntı: <a href="/kvkk#cerez">Çerez Politikası</a>.</p>
+      <button type="button" class="anda-btn anda-btn--primary anda-btn--sm" id="ak-cookie-ok"><span>Tamam</span></button>
+    </div>
+    <script is:inline>
+      (() => {
+        const KEY = 'anda-cookie-ok';
+        const el = document.getElementById('ak-cookie');
+        if (!el) return;
+        try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+        el.hidden = false;
+        document.getElementById('ak-cookie-ok')?.addEventListener('click', () => {
+          try { localStorage.setItem(KEY, '1'); } catch (e) {}
+          el.hidden = true;
+        });
+      })();
+    </script>
   </body>
 </html>

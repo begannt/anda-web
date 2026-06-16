@@ -6,22 +6,37 @@ import Blueprint from '../components/Blueprint.astro';
 import products from '../data/products.json';
 
 const toc = [
-  { num: '01', t: 'Ürün İndeksi', m: 'PCE AİLESİ · GENİŞLİYOR', href: '/urunler' },
-  { num: '02', t: 'PCE Teknolojisi', m: 'SU AZALTMA ≥25%', href: '/teknoloji' },
+  { num: '01', t: 'Ürünler', m: 'PCE AİLESİ · GENİŞLİYOR', href: '/urunler' },
+  { num: '02', t: 'PCE Teknolojisi', m: 'SU AZALTMA ≥%25', href: '/teknoloji' },
   { num: '03', t: 'Kalite & Mevzuat', m: 'TS EN 934-2 · ASTM C494', href: '/kalite' },
-  { num: '04', t: 'Teknik Kütüphane', m: 'TDS · COA · SDS', href: '/kutuphane' },
+  { num: '04', t: 'Teknik Kütüphane', m: 'KATALOG · TDS · SDS', href: '/kutuphane' },
 ];
 const docs = [
-  { ic: 'TDS', t: 'Teknik Bilgi Formu', s: 'Ürün değerleri, standart, dozaj — açık erişim', action: 'Görüntüle', info: true, href: '/kutuphane' },
+  { ic: 'KAT', t: 'Katalog', s: 'Performans değerleri ve ürün tanıtımı — açık erişim', action: 'Yakında', info: true, href: '/kutuphane' },
+  { ic: 'TDS', t: 'Teknik Bilgi Formu', s: 'Ürün değerleri, standart, dozaj — talep üzerine', action: 'Talep Et', info: false, href: '/iletisim' },
   { ic: 'SDS', t: 'Güvenlik Bilgi Formu (SDS/GBF)', s: 'Kontrollü doküman — talep üzerine', action: 'Talep Et', info: false, href: '/iletisim' },
-  { ic: 'NUM', t: 'Numune', s: 'Saha denemesi için ürün numunesi', action: 'Talep Et', info: false, href: '/iletisim' },
-  { ic: 'TG', t: 'Teknik Görüşme', s: 'Uygulama / uyumluluk için teknik ekip', action: 'Talep Et', info: false, href: '/iletisim' },
+  { ic: 'TG', t: 'Teknik Görüşme', s: 'Uygulama ve uyumluluk için teknik ekip', action: 'Talep Et', info: false, href: '/iletisim' },
 ];
 const metrics = [
-  { value: '≥25', unit: '%', label: 'Su Azaltma' },
-  { value: '50–55', unit: '%', label: 'Katı içerik' },
-  { value: '6.', unit: 'nesil', label: 'PCE Teknolojisi' },
-  { value: 'WR · SR', unit: '', label: 'Ürün Hattı' },
+  { value: '≥25', unit: '%', label: 'Su azaltma · WR' },
+  { value: '≤40', unit: 'mm', label: '60 dk kıvam kaybı · SR' },
+  { value: '≤0,10', unit: '% Cl⁻', label: 'Klorür içeriği' },
+  { value: '12', unit: 'ay', label: 'Raf ömrü' },
+];
+// Fayda-önce kartlar — ham koddan/sayıdan önce "ne çözer"
+const benefits = [
+  { kod: 'ANDA PCE 150 WR', slug: 'pce-150-wr', tip: 'Su Azaltıcı',
+    line: 'Betonun su/bağlayıcı oranını düşürür. Aynı işlenebilirlikte daha az suyla, ≥%25 su azaltma ve daha yüksek erken/nihai dayanım sağlar.',
+    kpi: '≥25', kpiU: '% su azaltma', std: 'EN 934-2 · ASTM Tip F' },
+  { kod: 'ANDA PCE 150 SR', slug: 'pce-150-sr', tip: 'Kıvam Koruyucu',
+    line: 'Taze betonun işlenebilirliğini uzun süre korur. 60 dakikalık slump kaybını ≤40 mm’de tutarak uzun taşıma ve sıcak hava dökümlerinde kıvamı dengede bırakır.',
+    kpi: '≤40', kpiU: 'mm · 60 dk kıvam kaybı', std: 'EN 934-2 · ASTM Tip G' },
+];
+// Karar vericiler — kimin hangi sorusuna cevap
+const forwho = [
+  { who: 'Laboratuvar', line: 'Çimento uyumu ve tekrarlanır performans — her parti lot bazlı COA ile doğrulanır.' },
+  { who: 'Üretim / Tesis', line: 'Öngörülebilir saha, az sürpriz — standart, dozaj ve dokümantasyon net.' },
+  { who: 'Şantiye', line: 'Döküm anında kıvam kontrolü — teknik ekip kısa sürede yanıt verir.' },
 ];
 ---
 <Base active="home">
@@ -31,12 +46,13 @@ const metrics = [
       <div class="ak-wrap ak-cover__grid">
         <div class="ak-cover__l">
           <div class="ak-docmeta">
-            <span><i class="ak-lbl">Belge tipi</i><b>Teknik Dosya</b></span>
             <span><i class="ak-lbl">Sektör</i><b>Beton Katkı / PCE</b></span>
             <span><i class="ak-lbl">Tesis</i><b>Gebze · Kocaeli</b></span>
           </div>
           <h1 class="ak-h1">Beton katkı sistemleri, belge titizliğiyle.</h1>
-          <p class="ak-lede">ANDA, beton kimyasında uluslararası ölçekte güncel formülasyon teknolojisini Gebze-Balçık üretimiyle Türkiye sahasına taşır. 6. nesil polikarboksilat eter (PCE) beton katkı maddelerini her ürün için ölçülmüş değer, standart ve dokümantasyonla sunar. Bu site bir broşür değil, bir teknik dosyadır.</p>
+          <p class="ak-lede">ANDA, polikarboksilat eter (PCE) bazlı beton katkılarını Gebze-Balçık’taki tesisinde üreten bir yapı kimyasalları markasıdır. Beton kimyasındaki en güncel kuşak teknolojiyi Türkiye sahasına getirir.</p>
+          <p class="ak-lede ak-lede--sub">Her ürünün arkasında ölçülmüş değer, geçerli standart ve eksiksiz dokümantasyon vardır. Sözünü reklamla değil, sahadaki performansla ve teknik belgeyle verir.</p>
+          <a class="ak-herolink" href="/hakkimizda"><span>Hakkımızda</span><Icon name="arrow-right" size={16} /></a>
           <div class="ak-toc">
             {toc.map((x) => (
               <a class="ak-toc__row" href={x.href}>
@@ -66,18 +82,64 @@ const metrics = [
       </div>
     </div>
 
+    <!-- PRODUCT FAMILY — benefit first ("ne çözer"), kanıt/sayıdan önce -->
+    <div class="ak-wrap">
+      <section class="ak-block ak-block--tight">
+        <div class="ak-blockhead">
+          <h2 class="ak-h2mono">Ne çözer</h2>
+          <span class="ak-ref">PCE SU AZALTICI AİLESİ · 2 ÜRÜN</span>
+        </div>
+        <div class="ak-benefits">
+          {benefits.map((b) => (
+            <a class="ak-benefit" href={`/urunler/${b.slug}`}>
+              <div class="ak-benefit__top">
+                <span class="ak-lbl ak-lbl--blue">{b.tip}</span>
+                <span class="ak-benefit__kod">{b.kod}</span>
+              </div>
+              <p class="ak-benefit__line">{b.line}</p>
+              <div class="ak-benefit__kpi">
+                <span class="v">{b.kpi}<i>{b.kpiU}</i></span>
+                <span class="anda-stdbadge"><span>{b.std}</span></span>
+              </div>
+              <span class="ak-benefit__go">İncele<Icon name="arrow-right" size={15} /></span>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <!-- TECH SUMMARY (kanıt — ölçülmüş değerler) -->
+    <div class="ak-tech">
+      <div class="ak-wrap">
+        <div class="ak-techhead">
+          <span class="ak-lbl ak-lbl--blue">Teknik özet</span>
+          <span class="ak-ref">ÖLÇÜLMÜŞ DEĞERLER · ÜRÜN BAZINDA TDS'TE</span>
+        </div>
+        <div class="ak-tech__grid">
+          {metrics.map((m) => (
+            <div class="ak-tech__cell">
+              <div class="anda-metric anda-metric--md">
+                <div class="val">{m.value}<span class="u">{m.unit}</span></div>
+                <div class="k">{m.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
     <!-- PRODUCT INDEX -->
     <div class="ak-wrap">
       <section class="ak-block">
         <div class="ak-blockhead">
-          <h2 class="ak-h2mono">01 — Ürün İndeksi</h2>
+          <h2 class="ak-h2mono">Ürünler</h2>
           <span class="ak-ref">PCE SU AZALTICI AİLESİ · PORTFÖY GENİŞLİYOR</span>
         </div>
         <div class="anda-table-wrap">
           <table class="anda-table anda-table--hover">
             <thead>
               <tr>
-                <th style="width:132px">Kod</th>
+                <th style="width:168px">Ürün</th>
                 <th>Tip</th>
                 <th>Standart</th>
                 <th>Sınıf</th>
@@ -106,23 +168,27 @@ const metrics = [
           </table>
         </div>
         <div class="ak-block__foot">
-          <a class="anda-btn anda-btn--secondary anda-btn--md" href="/urunler"><span>Tüm ürün indeksini aç</span><Icon name="arrow-right" size={17} /></a>
+          <a class="anda-btn anda-btn--secondary anda-btn--md" href="/urunler"><span>Tüm ürünleri gör</span><Icon name="arrow-right" size={17} /></a>
         </div>
       </section>
     </div>
 
-    <!-- TECH SUMMARY -->
-    <div class="ak-tech">
-      <div class="ak-wrap ak-tech__grid">
-        {metrics.map((m) => (
-          <div class="ak-tech__cell">
-            <div class="anda-metric anda-metric--md">
-              <div class="val">{m.value}<span class="u">{m.unit}</span></div>
-              <div class="k">{m.label}</div>
+    <!-- FOR WHOM — karar vericiler (Lab / Tesis / Şantiye) -->
+    <div class="ak-wrap">
+      <section class="ak-block">
+        <div class="ak-blockhead">
+          <h2 class="ak-h2mono">Kimin için</h2>
+          <span class="ak-ref">LABORATUVAR · TESİS · ŞANTİYE</span>
+        </div>
+        <div class="ak-forwho">
+          {forwho.map((f) => (
+            <div class="ak-forwho__col">
+              <span class="ak-lbl ak-lbl--blue">{f.who}</span>
+              <p>{f.line}</p>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
     </div>
 
     <!-- DOCS & REQUEST -->
@@ -130,7 +196,7 @@ const metrics = [
       <section class="ak-block">
         <div class="ak-blockhead">
           <h2 class="ak-h2mono">Belge &amp; Talep</h2>
-          <span class="ak-ref">Teknik belgeler</span>
+          <span class="ak-ref">KATALOG AÇIK ERİŞİM · TDS / SDS / GÖRÜŞME TALEP ÜZERİNE</span>
         </div>
         <div class="ak-docs__grid">
           <div class="ak-docrows">
@@ -139,15 +205,13 @@ const metrics = [
                 <span class="ak-docrow__ic">{d.ic}</span>
                 <div class="ak-docrow__t"><b>{d.t}</b><span>{d.s}</span></div>
                 {d.info
-                  ? <a class="anda-btn anda-btn--ghost anda-btn--sm" href={d.href}><Icon name="file-text" size={15} /><span>{d.action}</span></a>
+                  ? <span class="anda-btn anda-btn--ghost anda-btn--sm" style="cursor:default;opacity:.7;"><span>{d.action}</span></span>
                   : <a class="anda-btn anda-btn--secondary anda-btn--sm" href={d.href}><span>{d.action}</span><Icon name="arrow-right" size={15} /></a>}
               </div>
             ))}
           </div>
           <div class="ak-sealbox">
             <Seal size={116} markSrc="/assets/anda-mark-navy.png" dot={false} />
-            <span class="ak-lbl ak-lbl--blue">Özgünlük &amp; Kontrol</span>
-            <p>Her parti, lot bazlı COA ve kontrollü doküman akışıyla izlenir.</p>
           </div>
         </div>
       </section>

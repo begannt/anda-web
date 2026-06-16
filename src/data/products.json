@@ -1,6 +1,6 @@
 [
   {
-    "kod": "PCE 150 WR",
+    "kod": "ANDA PCE 150 WR",
     "slug": "pce-150-wr",
     "aile": "pce",
     "tip": "Su Azaltıcı",
@@ -10,6 +10,15 @@
     "durum": "Uygun",
     "tone": "ok",
     "aciklama": "ANDA PCE 150 WR; polikarboksilat (PCE) bazlı, betonun su/bağlayıcı oranını düşürerek işlenebilirliğini ve mekanik özelliklerini artıran, yüksek oranda su azaltıcı yeni nesil süperakışkanlaştırıcıdır.",
+    "headline": { "v": "≥25", "u": "% su azaltma" },
+    "strengths": [
+      "Yüksek oranlı su azaltma — su/bağlayıcı oranını belirgin biçimde düşürür.",
+      "Daha yüksek erken ve nihai basınç dayanımı.",
+      "Üstün işlenebilirlik ve homojen dağılım; ayrışma ve terleme olmadan.",
+      "Prekast ve yüksek dayanımlı beton için ideal.",
+      "Yaygın çimento tipleriyle geniş uyumluluk.",
+      "Düşük klorür ve düşük alkali — donatı güvenliği ve dayanıklılık."
+    ],
     "spec": [
       { "k": "Görünüm / renk", "v": "Renksiz – açık sarı sıvı", "u": "—", "m": "Görsel" },
       { "k": "Katı içerik", "v": "50,0 ± 2,0", "u": "%", "m": "EN 480-8" },
@@ -24,7 +33,7 @@
     "lot": { "coa": "Lot bazlı", "uretim": "Gebze-Balçık", "raf": "12 ay", "ambalaj": "IBC / tanker" }
   },
   {
-    "kod": "PCE 150 SR",
+    "kod": "ANDA PCE 150 SR",
     "slug": "pce-150-sr",
     "aile": "pce",
     "tip": "Kıvam Koruyucu",
@@ -34,6 +43,15 @@
     "durum": "Uygun",
     "tone": "ok",
     "aciklama": "ANDA PCE 150 SR; polikarboksilat (PCE) bazlı, betonun taze haldeki işlenebilirliğini uzun süre koruyan, kıvam koruyucu yeni nesil süperakışkanlaştırıcıdır.",
+    "headline": { "v": "≤40", "u": "mm · 60 dk kıvam kaybı" },
+    "strengths": [
+      "Uzun süreli kıvam (slump) koruma — uzun taşıma ve bekleme sürelerinde işlenebilirlik.",
+      "Sıcak hava dökümlerinde güvenli ve dengeli kıvam.",
+      "Yüksek akıcılık ve pompalanabilirlik; sahada öngörülebilirlik.",
+      "Ayrışma ve terleme olmadan homojen karışım.",
+      "Tek başına veya su azaltıcı ile bileşik kullanım esnekliği.",
+      "Yaygın çimento tipleriyle uyumluluk."
+    ],
     "spec": [
       { "k": "Görünüm / renk", "v": "Renksiz – açık sarı sıvı", "u": "—", "m": "Görsel" },
       { "k": "Katı içerik", "v": "55,0 ± 5,0", "u": "%", "m": "EN 480-8" },
